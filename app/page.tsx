@@ -72,8 +72,8 @@ export default function Home() {
               Philbert
             </h1>
             <p className="max-w-2xl text-base md:text-lg text-slate-400 leading-relaxed mx-auto md:mx-0">
-              6th Semester Computer Science student at **BINUS University** &
-              Exchange Student at **NSYSU Taiwan**. Specializing in AI research,
+              6th Semester Computer Science student at BINUS University &
+              Exchange Student at NSYSU Taiwan. Specializing in AI research,
               Machine Learning, and Blockchain technology.
             </p>
 
