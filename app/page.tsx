@@ -103,7 +103,7 @@ export default function Home() {
           <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64">
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-emerald-500 rounded-3xl rotate-6 opacity-20"></div>
             <div className="relative w-full h-full rounded-3xl overflow-hidden border-2 border-slate-800 bg-slate-900 shadow-2xl">
-              <img src="/Profile.jpeg" alt="Philbert Tan" className="w-full h-full object-cover" />
+              <img src="/profile.jpeg" alt="Philbert Tan" className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
