@@ -262,17 +262,25 @@ function ProjectCard({ project }: { project: Project }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      className="group relative flex justify-between items-start py-8 border-b border-white/5 cursor-pointer no-underline"
+      className="group relative flex flex-col md:flex-row justify-between items-start py-8 border-b border-white/5 cursor-pointer no-underline gap-8"
     >
-      <div className="relative z-10">
+      {/* Project Image Preview */}
+      <div className="relative w-full md:w-56 h-36 rounded-xl overflow-hidden border border-white/10 shrink-0 bg-white/5">
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+        />
+      </div>
+
+      {/* Project Text Info */}
+      <div className="relative z-10 flex-1">
         <div className="text-[11px] text-white/20 font-medium tracking-wider mb-3">{project.num}</div>
         
-        {/* Updated Title: Increased from text-lg to text-xl/text-2xl and added font-syne */}
         <div className="font-syne font-bold text-xl md:text-2xl text-[#f0f4f8] mb-3 group-hover:text-sky-400 transition-colors tracking-tight">
           {project.title}
         </div>
         
-        {/* Updated Description: Increased from text-[13px] to text-sm */}
         <div className="text-sm text-white/45 leading-relaxed max-w-[550px]">
           {project.desc}
         </div>
@@ -286,11 +294,11 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
       
-      <div className="text-white/20 text-2xl transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-sky-400 pt-8">
+      <div className="hidden md:block text-white/20 text-2xl transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-sky-400 pt-8">
         ↗
       </div>
       
-      {/* Hover Background */}
+      {/* Hover Background Accent */}
       <div className="absolute -inset-x-5 inset-y-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity z-0" />
     </motion.a>
   );
