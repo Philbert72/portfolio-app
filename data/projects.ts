@@ -75,7 +75,7 @@ export const projects: Project[] = [
   {
   num: "08", 
   title: "FURB",
-  desc: "A full-stack universal furniture marketplace system built with a React frontend and a Node.js/Express backend, utilizing a relational database for secure property management.",
+  desc: "A React and Node.js-based marketplace featuring a secure relational database for property and inventory management. It integrates an AI-powered search for high-precision discovery and a real-time chatroom to facilitate seamless communication between users.",
   tags: ["React", "Node.js", "Express", "MongoDB", "JavaScript"],
   url: "https://github.com/Philbert72/FURB",
   category: "web",
