@@ -55,8 +55,8 @@ export const projects: Project[] = [
     num: "05", 
     title: "Music Genre Classification",
     short: "Music Genres", 
-    desc: "NMF-based feature extraction and pattern recognition on audio signals for genre classification with signal processing.", 
-    tags: ["Signal Processing", "NMF", "Scikit-Learn"], 
+    desc: "Classifying music genres from song lyrics: TF-IDF features and NMF topic modeling turn each song into interpretable lyrical themes, then Logistic Regression, Linear SVM and Random Forest predict the genre.", 
+    tags: ["NLP", "TF-IDF", "NMF", "Scikit-Learn"], 
     url: "https://github.com/Philbert72/Classify-Music-Genre-NMF", 
     category: "ml",
     image: "/projects/music-methodology.png"
