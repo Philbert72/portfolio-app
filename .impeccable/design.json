@@ -1,0 +1,589 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-24T08:44:50.485Z",
+  "title": "Design System: Philbert Tan",
+  "extensions": {
+    "colorMeta": {
+      "cobalt": {
+        "role": "primary",
+        "displayName": "Poster Cobalt",
+        "canonical": "#1d3fd6",
+        "oklch": "oklch(46.1% 0.231 266.1)",
+        "tonalRamp": [
+          "oklch(15% 0.173 266.1)",
+          "oklch(26.4% 0.231 266.1)",
+          "oklch(37.9% 0.231 266.1)",
+          "oklch(49.3% 0.231 266.1)",
+          "oklch(60.7% 0.231 266.1)",
+          "oklch(72.1% 0.231 266.1)",
+          "oklch(83.6% 0.188 266.1)",
+          "oklch(95% 0.063 266.1)"
+        ],
+        "dark": "#2a3fa8"
+      },
+      "cobalt-ink": {
+        "role": "primary",
+        "displayName": "Banner White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100% 0 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0 89.9)",
+          "oklch(26.4% 0 89.9)",
+          "oklch(37.9% 0 89.9)",
+          "oklch(49.3% 0 89.9)",
+          "oklch(60.7% 0 89.9)",
+          "oklch(72.1% 0 89.9)",
+          "oklch(83.6% 0 89.9)",
+          "oklch(95% 0 89.9)"
+        ]
+      },
+      "cobalt-dim": {
+        "role": "primary",
+        "displayName": "Banner White, Dimmed",
+        "canonical": "rgb(255 255 255 / 0.78)",
+        "oklch": "oklch(100% 0 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0 89.9)",
+          "oklch(26.4% 0 89.9)",
+          "oklch(37.9% 0 89.9)",
+          "oklch(49.3% 0 89.9)",
+          "oklch(60.7% 0 89.9)",
+          "oklch(72.1% 0 89.9)",
+          "oklch(83.6% 0 89.9)",
+          "oklch(95% 0 89.9)"
+        ]
+      },
+      "accent-text": {
+        "role": "primary",
+        "displayName": "Cobalt Link Ink",
+        "canonical": "#1d3fd6",
+        "oklch": "oklch(46.1% 0.231 266.1)",
+        "tonalRamp": [
+          "oklch(15% 0.173 266.1)",
+          "oklch(26.4% 0.231 266.1)",
+          "oklch(37.9% 0.231 266.1)",
+          "oklch(49.3% 0.231 266.1)",
+          "oklch(60.7% 0.231 266.1)",
+          "oklch(72.1% 0.231 266.1)",
+          "oklch(83.6% 0.188 266.1)",
+          "oklch(95% 0.063 266.1)"
+        ],
+        "dark": "#a3b3ff"
+      },
+      "hi": {
+        "role": "secondary",
+        "displayName": "Highlighter Yellow",
+        "canonical": "#ffe14a",
+        "oklch": "oklch(90.9% 0.165 97.6)",
+        "tonalRamp": [
+          "oklch(15% 0.165 97.6)",
+          "oklch(26.4% 0.165 97.6)",
+          "oklch(37.9% 0.165 97.6)",
+          "oklch(49.3% 0.165 97.6)",
+          "oklch(60.7% 0.165 97.6)",
+          "oklch(72.1% 0.165 97.6)",
+          "oklch(83.6% 0.165 97.6)",
+          "oklch(95% 0.063 97.6)"
+        ],
+        "dark": "#e9c933"
+      },
+      "hi-ink": {
+        "role": "secondary",
+        "displayName": "Highlighter Ink",
+        "canonical": "#121418",
+        "oklch": "oklch(19.1% 0.009 264.3)",
+        "tonalRamp": [
+          "oklch(15% 0.009 264.3)",
+          "oklch(26.4% 0.009 264.3)",
+          "oklch(37.9% 0.009 264.3)",
+          "oklch(49.3% 0.009 264.3)",
+          "oklch(60.7% 0.009 264.3)",
+          "oklch(72.1% 0.009 264.3)",
+          "oklch(83.6% 0.009 264.3)",
+          "oklch(95% 0.009 264.3)"
+        ]
+      },
+      "pin": {
+        "role": "tertiary",
+        "displayName": "Push-pin Red",
+        "canonical": "#e2402f",
+        "oklch": "oklch(60.9% 0.201 29.9)",
+        "tonalRamp": [
+          "oklch(15% 0.173 29.9)",
+          "oklch(26.4% 0.201 29.9)",
+          "oklch(37.9% 0.201 29.9)",
+          "oklch(49.3% 0.201 29.9)",
+          "oklch(60.7% 0.201 29.9)",
+          "oklch(72.1% 0.201 29.9)",
+          "oklch(83.6% 0.188 29.9)",
+          "oklch(95% 0.063 29.9)"
+        ]
+      },
+      "laser": {
+        "role": "tertiary",
+        "displayName": "Laser Red",
+        "canonical": "#f2342b",
+        "oklch": "oklch(62.6% 0.226 28.5)",
+        "tonalRamp": [
+          "oklch(15% 0.173 28.5)",
+          "oklch(26.4% 0.226 28.5)",
+          "oklch(37.9% 0.226 28.5)",
+          "oklch(49.3% 0.226 28.5)",
+          "oklch(60.7% 0.226 28.5)",
+          "oklch(72.1% 0.226 28.5)",
+          "oklch(83.6% 0.188 28.5)",
+          "oklch(95% 0.063 28.5)"
+        ]
+      },
+      "board": {
+        "role": "neutral",
+        "displayName": "Felt Board",
+        "canonical": "#3a3f47",
+        "oklch": "oklch(36.6% 0.015 259.8)",
+        "tonalRamp": [
+          "oklch(15% 0.015 259.8)",
+          "oklch(26.4% 0.015 259.8)",
+          "oklch(37.9% 0.015 259.8)",
+          "oklch(49.3% 0.015 259.8)",
+          "oklch(60.7% 0.015 259.8)",
+          "oklch(72.1% 0.015 259.8)",
+          "oklch(83.6% 0.015 259.8)",
+          "oklch(95% 0.015 259.8)"
+        ],
+        "dark": "#15171c"
+      },
+      "board-ink": {
+        "role": "neutral",
+        "displayName": "Board Chalk",
+        "canonical": "#eceef1",
+        "oklch": "oklch(94.8% 0.005 258.3)",
+        "tonalRamp": [
+          "oklch(15% 0.005 258.3)",
+          "oklch(26.4% 0.005 258.3)",
+          "oklch(37.9% 0.005 258.3)",
+          "oklch(49.3% 0.005 258.3)",
+          "oklch(60.7% 0.005 258.3)",
+          "oklch(72.1% 0.005 258.3)",
+          "oklch(83.6% 0.005 258.3)",
+          "oklch(95% 0.005 258.3)"
+        ],
+        "dark": "#dadde3"
+      },
+      "board-dim": {
+        "role": "neutral",
+        "displayName": "Board Dim",
+        "canonical": "#b9bec7",
+        "oklch": "oklch(80% 0.014 262.4)",
+        "tonalRamp": [
+          "oklch(15% 0.014 262.4)",
+          "oklch(26.4% 0.014 262.4)",
+          "oklch(37.9% 0.014 262.4)",
+          "oklch(49.3% 0.014 262.4)",
+          "oklch(60.7% 0.014 262.4)",
+          "oklch(72.1% 0.014 262.4)",
+          "oklch(83.6% 0.014 262.4)",
+          "oklch(95% 0.014 262.4)"
+        ],
+        "dark": "#9196a1"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Poster Stock",
+        "canonical": "#fbfbf9",
+        "oklch": "oklch(98.8% 0.003 106.4)",
+        "tonalRamp": [
+          "oklch(15% 0.003 106.4)",
+          "oklch(26.4% 0.003 106.4)",
+          "oklch(37.9% 0.003 106.4)",
+          "oklch(49.3% 0.003 106.4)",
+          "oklch(60.7% 0.003 106.4)",
+          "oklch(72.1% 0.003 106.4)",
+          "oklch(83.6% 0.003 106.4)",
+          "oklch(95% 0.003 106.4)"
+        ],
+        "dark": "#17191e"
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Pocket Stock",
+        "canonical": "#f0f0eb",
+        "oklch": "oklch(95.4% 0.007 106.5)",
+        "tonalRamp": [
+          "oklch(15% 0.007 106.5)",
+          "oklch(26.4% 0.007 106.5)",
+          "oklch(37.9% 0.007 106.5)",
+          "oklch(49.3% 0.007 106.5)",
+          "oklch(60.7% 0.007 106.5)",
+          "oklch(72.1% 0.007 106.5)",
+          "oklch(83.6% 0.007 106.5)",
+          "oklch(95% 0.007 106.5)"
+        ],
+        "dark": "#1f2228"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Print Ink",
+        "canonical": "#121418",
+        "oklch": "oklch(19.1% 0.009 264.3)",
+        "tonalRamp": [
+          "oklch(15% 0.009 264.3)",
+          "oklch(26.4% 0.009 264.3)",
+          "oklch(37.9% 0.009 264.3)",
+          "oklch(49.3% 0.009 264.3)",
+          "oklch(60.7% 0.009 264.3)",
+          "oklch(72.1% 0.009 264.3)",
+          "oklch(83.6% 0.009 264.3)",
+          "oklch(95% 0.009 264.3)"
+        ],
+        "dark": "#eceef2"
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "canonical": "#41454d",
+        "oklch": "oklch(39% 0.015 264.4)",
+        "tonalRamp": [
+          "oklch(15% 0.015 264.4)",
+          "oklch(26.4% 0.015 264.4)",
+          "oklch(37.9% 0.015 264.4)",
+          "oklch(49.3% 0.015 264.4)",
+          "oklch(60.7% 0.015 264.4)",
+          "oklch(72.1% 0.015 264.4)",
+          "oklch(83.6% 0.015 264.4)",
+          "oklch(95% 0.015 264.4)"
+        ],
+        "dark": "#b4b8c1"
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Caption Ink",
+        "canonical": "#5d626c",
+        "oklch": "oklch(49.5% 0.017 264.4)",
+        "tonalRamp": [
+          "oklch(15% 0.017 264.4)",
+          "oklch(26.4% 0.017 264.4)",
+          "oklch(37.9% 0.017 264.4)",
+          "oklch(49.3% 0.017 264.4)",
+          "oklch(60.7% 0.017 264.4)",
+          "oklch(72.1% 0.017 264.4)",
+          "oklch(83.6% 0.017 264.4)",
+          "oklch(95% 0.017 264.4)"
+        ],
+        "dark": "#8f949e"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgb(18 20 24 / 0.14)",
+        "oklch": "oklch(19.1% 0.009 264.3)",
+        "tonalRamp": [
+          "oklch(15% 0.009 264.3)",
+          "oklch(26.4% 0.009 264.3)",
+          "oklch(37.9% 0.009 264.3)",
+          "oklch(49.3% 0.009 264.3)",
+          "oklch(60.7% 0.009 264.3)",
+          "oklch(72.1% 0.009 264.3)",
+          "oklch(83.6% 0.009 264.3)",
+          "oklch(95% 0.009 264.3)"
+        ],
+        "dark": "rgb(255 255 255 / 0.1)"
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "rgb(18 20 24 / 0.28)",
+        "oklch": "oklch(19.1% 0.009 264.3)",
+        "tonalRamp": [
+          "oklch(15% 0.009 264.3)",
+          "oklch(26.4% 0.009 264.3)",
+          "oklch(37.9% 0.009 264.3)",
+          "oklch(49.3% 0.009 264.3)",
+          "oklch(60.7% 0.009 264.3)",
+          "oklch(72.1% 0.009 264.3)",
+          "oklch(83.6% 0.009 264.3)",
+          "oklch(95% 0.009 264.3)"
+        ],
+        "dark": "rgb(255 255 255 / 0.22)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the title banner only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The Conclusion statement; one per page."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "The poster subtitle under the name, max 40ch."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Numbered panel headings and the References heading."
+      },
+      "title-figure": {
+        "displayName": "Title, Figure",
+        "purpose": "Project figure titles and the handout's 'Take a copy'."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Introduction prose; long passages cap near 48-62ch."
+      },
+      "body-sm": {
+        "displayName": "Body, Small",
+        "purpose": "Figure descriptions, experience details, list rows."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Fig. n. markers, dates, reference numbers, method chips."
+      },
+      "label-sm": {
+        "displayName": "Label, Small",
+        "purpose": "Graph legend, filter counts, keyword tags, kbd hints, portrait caption."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet",
+        "value": "0 2px 3px rgb(0 0 0 / 0.18), 0 24px 48px -20px rgb(0 0 0 / 0.55)",
+        "dark": "0 2px 3px rgb(0 0 0 / 0.5), 0 24px 48px -20px rgb(0 0 0 / 0.9)",
+        "purpose": "The poster sheet on the felt board; one per page."
+      },
+      {
+        "name": "lift",
+        "value": "0 2px 4px rgb(18 20 24 / 0.08), 0 18px 36px -16px rgb(18 20 24 / 0.32)",
+        "dark": "0 2px 4px rgb(0 0 0 / 0.4), 0 18px 36px -16px rgb(0 0 0 / 0.8)",
+        "purpose": "Hovered or highlighted project figures, the command menu, the toast."
+      },
+      {
+        "name": "pin",
+        "value": "3px 5px 4px -1px rgb(0 0 0 / 0.4)",
+        "purpose": "Push-pin heads only."
+      },
+      {
+        "name": "nav-hairline",
+        "value": "0 1px 0 rgb(0 0 0 / 0.25)",
+        "purpose": "Bottom edge of the nav once scrolled, with board at 95% and backdrop blur."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default ease for lifts, arrow nudges, pocket tabs, figure enter/exit, pin-up."
+      },
+      {
+        "name": "ease-highlighter",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Highlighter sweep, 900ms, once per phrase on first view."
+      },
+      {
+        "name": "pin-up",
+        "value": "900ms ease-out-expo; from translateY(-28px) rotate(-0.8deg), opacity 0",
+        "purpose": "The sheet settles onto the board on load."
+      },
+      {
+        "name": "pin-press",
+        "value": "450ms ease-out-expo; delay 650ms + 80ms per pin; from scale(1.6)",
+        "purpose": "Pins press in after the sheet lands."
+      },
+      {
+        "name": "nav-pill-spring",
+        "value": "spring stiffness 420, damping 36",
+        "purpose": "Active nav pill sliding between sections."
+      },
+      {
+        "name": "duration-hover",
+        "value": "150-300ms colors; 500ms plate lift; 700ms image scale to 1.05",
+        "purpose": "Hover transitions."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "all animations and transitions to 0.01ms",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "sheet-max",
+        "value": "1280px"
+      }
+    ],
+    "textures": [
+      {
+        "name": "felt",
+        "value": "url(/textures/felt.png) repeat, 320px tile over var(--board)",
+        "purpose": "The felt poster board behind the sheet."
+      }
+    ],
+    "cursors": [
+      {
+        "name": "laser",
+        "value": "24px SVG red dot (#f2342b) with halo, hotspot 12 12, crosshair fallback",
+        "purpose": "Presenter's laser pointer over Figure 1 and project figures."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single primary action: the Conclusion email button.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-10 6L2 7\"/></svg>hello@example.com</a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px;border-radius:3px;background:var(--cobalt,#1d3fd6);color:var(--cobalt-ink,#fff);font:600 15px/1 var(--font-hanken), 'Hanken Grotesk', sans-serif;text-decoration:none;transition:transform .2s cubic-bezier(0.16,1,0.3,1)}.ds-btn-primary:hover{transform:translateY(-2px)}.ds-btn-primary:focus-visible{outline:2px solid var(--cobalt,#1d3fd6);outline-offset:3px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary actions beside the primary: Copy email, Email me.",
+      "html": "<button type=\"button\" class=\"ds-btn-outline\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"8\" y=\"8\" width=\"14\" height=\"14\" rx=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/></svg>Copy email</button>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 20px;border-radius:3px;border:1px solid var(--line-strong,rgb(18 20 24/.28));background:transparent;color:var(--ink,#121418);font:600 15px/1 var(--font-hanken), 'Hanken Grotesk', sans-serif;cursor:pointer;transition:border-color .15s}.ds-btn-outline:hover{border-color:var(--ink,#121418)}.ds-btn-outline:focus-visible{outline:2px solid var(--cobalt,#1d3fd6);outline-offset:3px}"
+    },
+    {
+      "name": "Filter Chips",
+      "kind": "chip",
+      "refersTo": "chip-filter",
+      "description": "Category filters above Figure 1, each with a mono count; active fills with ink.",
+      "html": "<div class=\"ds-filters\"><button type=\"button\" class=\"ds-filter\" aria-pressed=\"true\">All <span>8</span></button><button type=\"button\" class=\"ds-filter\" aria-pressed=\"false\">Machine learning <span>4</span></button><button type=\"button\" class=\"ds-filter\" aria-pressed=\"false\">Web <span>3</span></button></div>",
+      "css": ".ds-filters{display:flex;flex-wrap:wrap;gap:6px}.ds-filter{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:3px;border:1px solid var(--line-strong,rgb(18 20 24/.28));background:transparent;color:var(--ink-2,#41454d);font:500 14px/1 var(--font-hanken), 'Hanken Grotesk', sans-serif;cursor:pointer;transition:color .15s,border-color .15s}.ds-filter span{font:400 11px/1 var(--font-jetbrains), 'JetBrains Mono', monospace;color:var(--ink-3,#5d626c)}.ds-filter:hover{border-color:var(--ink,#121418);color:var(--ink,#121418)}.ds-filter[aria-pressed=\"true\"]{background:var(--ink,#121418);border-color:var(--ink,#121418);color:var(--paper,#fbfbf9)}.ds-filter[aria-pressed=\"true\"] span{color:color-mix(in srgb,var(--paper,#fbfbf9) 70%,transparent)}.ds-filter:focus-visible{outline:2px solid var(--cobalt,#1d3fd6);outline-offset:3px}"
+    },
+    {
+      "name": "Keyword Tags",
+      "kind": "chip",
+      "refersTo": "keyword-tag",
+      "description": "Technology keywords under a project figure; hover or active applies the highlighter.",
+      "html": "<p class=\"ds-keywords\"><span class=\"ds-keywords-label\">Keywords</span><button type=\"button\" class=\"ds-tag\" aria-pressed=\"true\">PyTorch</button><button type=\"button\" class=\"ds-tag\" aria-pressed=\"false\">GNN</button><button type=\"button\" class=\"ds-tag\" aria-pressed=\"false\">Python</button></p>",
+      "css": ".ds-keywords{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:0;font:400 12px/1.4 var(--font-hanken), 'Hanken Grotesk', sans-serif}.ds-keywords-label{margin-right:4px;font-weight:500;color:var(--ink-3,#5d626c)}.ds-tag{border:0;background:transparent;border-radius:2px;padding:2px 6px;font:400 11.5px/1.4 var(--font-jetbrains), 'JetBrains Mono', monospace;color:var(--ink-2,#41454d);text-decoration:underline;text-decoration-color:var(--line-strong,rgb(18 20 24/.28));text-underline-offset:2px;cursor:pointer;transition:background-color .15s,color .15s}.ds-tag:hover,.ds-tag[aria-pressed=\"true\"]{background:var(--hi,#ffe14a);color:var(--hi-ink,#121418);text-decoration:none}.ds-tag:focus-visible{outline:2px solid var(--cobalt,#1d3fd6);outline-offset:3px}"
+    },
+    {
+      "name": "Panel Heading",
+      "kind": "custom",
+      "refersTo": "panel-heading",
+      "description": "Numbered cobalt band that opens every poster panel, read in order.",
+      "html": "<h2 class=\"ds-panel-heading\"><span class=\"ds-panel-n\">2</span><span class=\"ds-panel-name\">Selected work</span></h2>",
+      "css": ".ds-panel-heading{display:flex;align-items:stretch;overflow:hidden;margin:0;border-radius:3px;background:var(--cobalt,#1d3fd6);color:var(--cobalt-ink,#fff);font:700 19px/1 var(--font-archivo), 'Archivo', sans-serif;font-stretch:110%;letter-spacing:-0.01em}.ds-panel-n{display:grid;place-items:center;width:44px;flex-shrink:0;background:rgb(0 0 0/.2);font-variant-numeric:tabular-nums}.ds-panel-name{display:flex;align-items:center;padding:12px 16px}"
+    },
+    {
+      "name": "Handout Pocket",
+      "kind": "custom",
+      "refersTo": "handout-pocket",
+      "description": "The take-a-copy pocket for the CV; paper tabs rise on hover.",
+      "html": "<a class=\"ds-handout\" href=\"#\"><span class=\"ds-handout-tabs\" aria-hidden=\"true\"><span class=\"ds-tab ds-tab-back\"></span><span class=\"ds-tab ds-tab-front\"></span></span><span class=\"ds-handout-body\"><span><span class=\"ds-handout-title\">Take a copy</span><span class=\"ds-handout-sub\">Curriculum vitae, PDF</span></span><span class=\"ds-handout-disc\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4v12M6 11l6 6 6-6M5 20h14\"/></svg></span></span></a>",
+      "css": ".ds-handout{position:relative;display:block;max-width:320px;margin-top:20px;padding:24px 16px 16px;border-radius:3px;border:1px solid var(--line-strong,rgb(18 20 24/.28));background:var(--paper-2,#f0f0eb);color:var(--ink,#121418);text-decoration:none;transition:border-color .15s}.ds-handout:hover{border-color:var(--ink,#121418)}.ds-handout:focus-visible{outline:2px solid var(--cobalt,#1d3fd6);outline-offset:3px}.ds-handout-tabs{position:absolute;left:16px;right:16px;top:-12px;height:24px}.ds-tab{position:absolute;top:0;height:100%;border:1px solid var(--line,rgb(18 20 24/.14));border-bottom:0;border-radius:2px 2px 0 0;background:var(--paper,#fbfbf9);transition:transform .5s cubic-bezier(0.16,1,0.3,1)}.ds-tab-back{left:12px;right:12px}.ds-tab-front{left:6px;right:6px;top:4px}.ds-handout:hover .ds-tab-back{transform:translateY(-6px)}.ds-handout:hover .ds-tab-front{transform:translateY(-4px)}.ds-handout-body{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px}.ds-handout-title{display:block;font:700 18px/1.2 var(--font-archivo), 'Archivo', sans-serif;font-stretch:110%;letter-spacing:-0.01em}.ds-handout-sub{display:block;font:400 14px/1.5 var(--font-hanken), 'Hanken Grotesk', sans-serif;color:var(--ink-2,#41454d)}.ds-handout-disc{display:grid;place-items:center;width:40px;height:40px;border-radius:9999px;background:var(--cobalt,#1d3fd6);color:var(--cobalt-ink,#fff);transition:transform .3s cubic-bezier(0.16,1,0.3,1)}.ds-handout:hover .ds-handout-disc{transform:translateY(2px)}"
+    },
+    {
+      "name": "Site Nav",
+      "kind": "nav",
+      "refersTo": "nav-link-active",
+      "description": "Slim nav over the felt board; the active section is a paper pill.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a class=\"ds-nav-mark\" href=\"#\">Philbert Tan</a><ul><li><a href=\"#\" aria-current=\"location\">About</a></li><li><a href=\"#\">Work</a></li><li><a href=\"#\">Experience</a></li><li><a href=\"#\">Contact</a></li></ul></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;padding:0 32px;background:var(--board,#3a3f47)}.ds-nav-mark{font:800 18px/1 var(--font-archivo), 'Archivo', sans-serif;font-stretch:115%;letter-spacing:-0.02em;color:var(--board-ink,#eceef1);text-decoration:none}.ds-nav ul{display:flex;gap:4px;margin:0;padding:0;list-style:none}.ds-nav ul a{display:block;padding:8px 16px;border-radius:3px;font:500 14.5px/1.4 var(--font-hanken), 'Hanken Grotesk', sans-serif;color:var(--board-dim,#b9bec7);text-decoration:none;transition:color .2s,background-color .2s}.ds-nav ul a:hover{color:var(--board-ink,#eceef1)}.ds-nav ul a[aria-current]{background:var(--paper,#fbfbf9);color:var(--ink,#121418)}.ds-nav a:focus-visible{outline:2px solid var(--cobalt,#1d3fd6);outline-offset:3px}"
+    },
+    {
+      "name": "Project Figure",
+      "kind": "card",
+      "description": "A captioned figure plate for one project; lifts on hover, title links to its repository.",
+      "html": "<figure class=\"ds-figure\"><div class=\"ds-figure-plate\"></div><figcaption><h3><span class=\"ds-fig-n\">Fig. 2a.</span><a href=\"#\">Lunar Lander Agent</a></h3><p>A reinforcement learning agent that learns to land a lunar module.</p></figcaption></figure>",
+      "css": ".ds-figure{max-width:280px;margin:0}.ds-figure-plate{aspect-ratio:4/3;border-radius:3px;border:1px solid var(--line,rgb(18 20 24/.14));background:var(--paper-2,#f0f0eb);transition:transform .5s cubic-bezier(0.16,1,0.3,1),box-shadow .5s cubic-bezier(0.16,1,0.3,1)}.ds-figure:hover .ds-figure-plate{transform:translateY(-4px);box-shadow:var(--lift-shadow,0 2px 4px rgb(18 20 24/.08),0 18px 36px -16px rgb(18 20 24/.32))}.ds-figure h3{margin:12px 0 0;font:400 15px/1.375 var(--font-hanken), 'Hanken Grotesk', sans-serif}.ds-fig-n{margin-right:6px;font:500 12px/1 var(--font-jetbrains), 'JetBrains Mono', monospace;color:var(--ink-3,#5d626c)}.ds-figure h3 a{font:700 18px/1.375 var(--font-archivo), 'Archivo', sans-serif;font-stretch:105%;letter-spacing:-0.01em;color:var(--ink,#121418);text-decoration:none}.ds-figure:hover h3 a{color:var(--accent-text,#1d3fd6)}.ds-figure h3 a:focus-visible{outline:2px solid var(--cobalt,#1d3fd6);outline-offset:4px;border-radius:3px}.ds-figure p{margin:6px 0 0;font:400 14.5px/1.625 var(--font-hanken), 'Hanken Grotesk', sans-serif;color:var(--ink-2,#41454d)}"
+    },
+    {
+      "name": "Highlighter Stroke",
+      "kind": "custom",
+      "description": "Yellow stroke that sweeps across a key phrase the first time it is read.",
+      "html": "<p class=\"ds-hl-p\">I research and build <mark class=\"ds-hl\">machine learning systems</mark> for real data.</p>",
+      "css": ".ds-hl-p{font:400 15.5px/1.625 var(--font-hanken), 'Hanken Grotesk', sans-serif;color:var(--ink-2,#41454d)}.ds-hl{color:inherit;background-color:transparent;background-image:linear-gradient(100deg,transparent .15em,var(--hi,#ffe14a) .3em,var(--hi,#ffe14a) calc(100% - .3em),transparent calc(100% - .1em));background-repeat:no-repeat;background-size:100% .82em;background-position:0 72%;padding:0 .12em;margin:0 -.12em;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .9s cubic-bezier(0.65,0,0.35,1)}.ds-hl-p:hover .ds-hl{background-size:0% .82em}"
+    },
+    {
+      "name": "Reference Row",
+      "kind": "custom",
+      "description": "Numbered References entry for an outbound link.",
+      "html": "<ol class=\"ds-refs\"><li><a href=\"#\"><span class=\"ds-ref-n\">[1]</span><span><b>GitHub.</b> <span class=\"ds-ref-h\">github.com/Philbert72</span></span><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a></li></ol>",
+      "css": ".ds-refs{margin:0;padding:0;list-style:none;max-width:420px}.ds-refs a{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:8px;padding:14px 0;border-bottom:1px solid var(--line,rgb(18 20 24/.14));font:400 14.5px/1.4 var(--font-hanken), 'Hanken Grotesk', sans-serif;color:var(--ink,#121418);text-decoration:none}.ds-ref-n{font:400 12px/1 var(--font-jetbrains), 'JetBrains Mono', monospace;color:var(--ink-3,#5d626c)}.ds-ref-h{font:400 12.5px/1 var(--font-jetbrains), 'JetBrains Mono', monospace;color:var(--ink-2,#41454d)}.ds-refs a:hover .ds-ref-h{color:var(--accent-text,#1d3fd6);text-decoration:underline}.ds-refs svg{color:var(--ink-3,#5d626c);transition:transform .3s cubic-bezier(0.16,1,0.3,1)}.ds-refs a:hover svg{transform:translate(2px,-2px);color:var(--accent-text,#1d3fd6)}.ds-refs a:focus-visible{outline:2px solid var(--cobalt,#1d3fd6);outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Pinned Research Poster",
+    "overview": "The whole site is one printed research poster, pinned to a dark felt board in a conference poster hall. A single matte paper sheet carries everything: a full-width cobalt title banner with the name in heavy expanded type and an author line with superscript affiliations, then numbered panels read in order (Introduction, Selected work, Experience, Methods and tools, Conclusion), figures with \"Fig. n.\" captions in mono, and a References list for outbound links. The felt board and a slim nav are the only things outside the sheet.\n\nThe register is academic print, not developer template: dense but ordered, flat paper with hairline rules, one saturated institutional blue for structure, and a yellow highlighter that a reader has run over the key phrases. Motion behaves like physical handling of the poster: the sheet settles onto the board, the pins press in, highlighter strokes sweep as phrases scroll into view, and over a figure the cursor becomes a presenter's laser dot. Everything else is still.\n\nThe dark theme is the hall with its lights dimmed: dark stock on a darker board, the same structure and the same roles. The previous dark neon look is explicitly rejected, as is the name-hero plus card-grid portfolio template.",
+    "keyCharacteristics": [
+      "One paper sheet on a felt board; the sheet is the only lifted plane at rest.",
+      "Numbered cobalt panel headings read in poster order.",
+      "Figures carry mono \"Fig. n.\" captions; links live in a numbered References list.",
+      "Yellow highlighter strokes on a few key phrases, never on blocks.",
+      "Near-square corners (2-4px) everywhere; round only for physical round objects.",
+      "Archivo expanded for poster titles, Hanken Grotesk for reading, JetBrains Mono for labels."
+    ],
+    "rules": [
+      {
+        "name": "The Structural Blue Rule",
+        "body": "Cobalt marks structure and the single primary action: the banner, the panel numbers, the primary email button. It never fills a card or tints a background region.",
+        "section": "colors"
+      },
+      {
+        "name": "The Highlighter Rule",
+        "body": "Yellow is a mark a reader makes on text or a selection state, never a surface. At most a handful of phrases per screen carry a stroke.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hardware Red Rule",
+        "body": "Red belongs to physical objects in the hall (pins, laser dot). It is never used for text, status or emphasis.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Axis Rule",
+        "body": "Archivo titles always carry their expanded width (105-118%) and negative tracking; unexpanded Archivo looks like a different face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Means Apparatus Rule",
+        "body": "Mono is for the paper's apparatus: figure labels, dates, counts, reference numbers, technology names. Never for prose or headings.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Sheet Rule",
+        "body": "Only the sheet is lifted at rest. Panels, headings and lists are printed on it and stay flat.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Lift Is Response Rule",
+        "body": "Lift appears in response to hover, focus or a linked highlight, or for an overlay held above the sheet; never as a static card treatment.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put every new section on the sheet as a numbered panel with a cobalt Panel Heading, continuing the reading order.",
+      "**Do** caption any image, chart or diagram as a figure with a mono \"Fig. n.\" label.",
+      "**Do** list outbound links as numbered References rows, not as icon rows or social buttons.",
+      "**Do** keep corners at 2-4px; reserve full rounding for physical round objects (pins, discs, dots, graph technology nodes).",
+      "**Do** set Archivo titles with the width axis expanded (105-118%) and negative tracking.",
+      "**Do** honor `prefers-reduced-motion`: pin-up, pin-press, highlighter sweeps and hover lifts collapse to instant.",
+      "**Do** keep both themes on the same roles: dark stock (`#17191e`) on a darker board (`#15171c`), cobalt `#2a3fa8`, link ink `#a3b3ff`."
+    ],
+    "donts": [
+      "**Don't** return to the dark neon look or the name-hero plus card-grid developer template.",
+      "**Don't** introduce cards, tinted section backgrounds or shadows on panels; only the sheet is lifted at rest.",
+      "**Don't** fill surfaces or buttons with Highlighter Yellow; it marks phrases and selection states only.",
+      "**Don't** use pin or laser red for text, alerts or emphasis.",
+      "**Don't** set prose or headings in JetBrains Mono."
+    ]
+  }
+}
