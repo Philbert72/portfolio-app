@@ -24,7 +24,7 @@ export default function Home() {
         <article className="sheet relative mx-auto max-w-[1280px] bg-paper shadow-sheet">
           <Pins />
           <Banner />
-          <div className="px-4 py-10 sm:px-8 md:px-10 lg:py-12">
+          <div className="px-4 py-10 sm:px-8 md:px-10 lg:py-9">
             <WorkSection intro={<Introduction />} />
             <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:gap-12">
               <Experience />
@@ -58,16 +58,16 @@ function Pins() {
 
 function Banner() {
   return (
-    <header id="top" className="bg-cobalt px-4 pb-8 pt-12 text-cobalt-ink sm:px-8 md:px-10 md:pb-9 md:pt-11">
+    <header id="top" className="bg-cobalt px-4 pb-8 pt-12 text-cobalt-ink sm:px-8 md:px-10 md:pb-7 md:pt-9">
       <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <h1 className="font-display text-[clamp(3.25rem,10vw,6rem)] font-extrabold leading-[0.88] tracking-[-0.035em] [font-stretch:118%]">
             Philbert Tan
           </h1>
-          <p className="mt-5 max-w-[40ch] font-display text-[clamp(1.15rem,2.2vw,1.5rem)] font-medium leading-snug tracking-[-0.01em] [font-stretch:105%]">
+          <p className="mt-4 max-w-[40ch] font-display text-[clamp(1.15rem,2.2vw,1.5rem)] font-medium leading-snug tracking-[-0.01em] [font-stretch:105%]">
             Machine learning research, and the systems built around it
           </p>
-          <p className="mt-5 flex flex-col gap-1 text-[15px] leading-relaxed text-cobalt-dim md:flex-row md:flex-wrap md:gap-x-6">
+          <p className="mt-4 flex flex-col gap-1 text-[15px] leading-relaxed text-cobalt-dim md:flex-row md:flex-wrap md:gap-x-6">
             <span className="font-semibold text-cobalt-ink">
               Philbert Tan<sup className="ml-0.5">1,2</sup>
             </span>
@@ -112,7 +112,7 @@ function Introduction() {
             ["Exchange", "NSYSU, Taiwan"],
             ["Focus", "ML · GNNs · Security"],
           ].map(([k, v]) => (
-            <div key={k} className="border-b border-line py-1.5 first:pt-0">
+            <div key={k} className="border-b border-line py-1 first:pt-0">
               <dt className="text-[11.5px] text-ink-3">{k}</dt>
               <dd className="tabular font-semibold leading-snug text-ink">{v}</dd>
             </div>
@@ -120,7 +120,7 @@ function Introduction() {
         </dl>
       </div>
 
-      <div className="mt-5 space-y-3 text-[15.5px] leading-relaxed text-ink-2">
+      <div className="mt-4 space-y-3 text-[15.5px] leading-relaxed text-ink-2">
         <p>
           I&apos;m a Computer Science student at BINUS University, spending this term at NSYSU in Taiwan. I research and
           build <Highlight delay={900}>machine learning systems</Highlight>, from graph neural networks that flag cloud
@@ -150,7 +150,7 @@ function Handout() {
     <a
       href={profile.resume}
       download
-      className="group relative mt-6 block rounded-[3px] border border-line-strong bg-paper-2 px-4 pb-4 pt-6 transition-colors hover:border-ink"
+      className="group relative mt-5 block rounded-[3px] border border-line-strong bg-paper-2 px-4 pb-4 pt-6 transition-colors hover:border-ink"
     >
       <span aria-hidden="true" className="absolute inset-x-4 -top-3 h-6">
         <span className="absolute inset-x-3 top-0 h-full rounded-t-[2px] border border-b-0 border-line bg-paper transition-transform duration-500 ease-out-expo group-hover:-translate-y-1.5" />

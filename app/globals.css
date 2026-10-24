@@ -144,8 +144,12 @@ body {
 .hl.is-on {
   background-size: 100% 0.82em;
 }
+/* On dark stock the stroke stays a true highlighter: ink flips dark as the stroke lands. */
 :root[data-theme="dark"] .hl {
-  background-image: linear-gradient(100deg, transparent 0.15em, rgb(233 201 51 / 0.38) 0.3em, rgb(233 201 51 / 0.38) calc(100% - 0.3em), transparent calc(100% - 0.1em));
+  transition: background-size 0.9s cubic-bezier(0.65, 0, 0.35, 1), color 0.3s ease 0.4s;
+}
+:root[data-theme="dark"] .hl.is-on {
+  color: var(--hi-ink);
 }
 
 /* Presenter's laser pointer over figures. */
