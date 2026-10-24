@@ -16,9 +16,9 @@ export default function Toaster() {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-2 rounded-full bg-ink py-2.5 pl-3 pr-4 text-sm font-medium text-bg shadow-card"
+            className="flex items-center gap-2 rounded-full bg-ink py-2.5 pl-3 pr-4 text-sm font-medium text-paper shadow-lift"
           >
-            <span className="grid size-5 place-items-center rounded-full bg-signal text-signal-ink">
+            <span className="grid size-5 place-items-center rounded-full bg-hi text-hi-ink">
               <Check size={13} strokeWidth={3} aria-hidden="true" />
             </span>
             {message}

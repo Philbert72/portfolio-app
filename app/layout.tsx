@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Archivo, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const display = Archivo({
   subsets: ["latin"],
-  variable: "--font-bricolage",
-  axes: ["opsz", "wdth"],
+  variable: "--font-archivo",
+  axes: ["wdth"],
 });
 
 const sans = Hanken_Grotesk({
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f1f2ee" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d0e12" },
+    { media: "(prefers-color-scheme: light)", color: "#3a3f47" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0c0f" },
   ],
 };
 

@@ -2,122 +2,182 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+/* The poster hall: a paper sheet pinned to a felt board. */
 :root {
-  --bg: #f1f2ee;
-  --surface: #ffffff;
-  --surface-2: #e7e8e3;
-  --ink: #111318;
-  --ink-2: #474c57;
-  --ink-3: #626877;
-  --line: rgb(17 19 24 / 0.12);
-  --line-strong: rgb(17 19 24 / 0.24);
-  --accent: #2a35e8;
-  --accent-ink: #ffffff;
-  --accent-text: #2a35e8;
-  --accent-soft: #e2e4ff;
-  --field: #2a35e8;
-  --field-ink: #ffffff;
-  --field-dim: rgb(255 255 255 / 0.62);
-  --signal: #d4fa45;
-  --signal-ink: #111318;
-  --shadow: 0 1px 2px rgb(17 19 24 / 0.06), 0 12px 32px -12px rgb(17 19 24 / 0.18);
+  --board: #3a3f47;
+  --board-ink: #eceef1;
+  --board-dim: #b9bec7;
+  --paper: #fbfbf9;
+  --paper-2: #f0f0eb;
+  --ink: #121418;
+  --ink-2: #41454d;
+  --ink-3: #5d626c;
+  --line: rgb(18 20 24 / 0.14);
+  --line-strong: rgb(18 20 24 / 0.28);
+  --cobalt: #1d3fd6;
+  --cobalt-ink: #ffffff;
+  --cobalt-dim: rgb(255 255 255 / 0.78);
+  --accent-text: #1d3fd6;
+  --hi: #ffe14a;
+  --hi-ink: #121418;
+  --laser: #f2342b;
+  --pin: #e2402f;
+  --sheet-shadow: 0 2px 3px rgb(0 0 0 / 0.18), 0 24px 48px -20px rgb(0 0 0 / 0.55);
+  --lift-shadow: 0 2px 4px rgb(18 20 24 / 0.08), 0 18px 36px -16px rgb(18 20 24 / 0.32);
   color-scheme: light;
 }
 
+/* Hall lights dimmed: dark stock on a darker board. */
 :root[data-theme="dark"] {
-  --bg: #0d0e12;
-  --surface: #16181e;
-  --surface-2: #1d2027;
+  --board: #15171c;
+  --board-ink: #dadde3;
+  --board-dim: #9196a1;
+  --paper: #17191e;
+  --paper-2: #1f2228;
   --ink: #eceef2;
-  --ink-2: #b0b4bf;
-  --ink-3: #8a8f9c;
+  --ink-2: #b4b8c1;
+  --ink-3: #8f949e;
   --line: rgb(255 255 255 / 0.1);
   --line-strong: rgb(255 255 255 / 0.22);
-  --accent: #4f5bff;
-  --accent-ink: #ffffff;
-  --accent-text: #9aa1ff;
-  --accent-soft: rgb(79 91 255 / 0.16);
-  --field: #2630c9;
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 16px 40px -16px rgb(0 0 0 / 0.7);
+  --cobalt: #2a3fa8;
+  --accent-text: #a3b3ff;
+  --hi: #e9c933;
+  --sheet-shadow: 0 2px 3px rgb(0 0 0 / 0.5), 0 24px 48px -20px rgb(0 0 0 / 0.9);
+  --lift-shadow: 0 2px 4px rgb(0 0 0 / 0.4), 0 18px 36px -16px rgb(0 0 0 / 0.8);
   color-scheme: dark;
 }
 
 @theme inline {
-  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
+  --color-board: var(--board);
+  --color-board-ink: var(--board-ink);
+  --color-board-dim: var(--board-dim);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
-  --color-accent: var(--accent);
-  --color-accent-ink: var(--accent-ink);
+  --color-cobalt: var(--cobalt);
+  --color-cobalt-ink: var(--cobalt-ink);
+  --color-cobalt-dim: var(--cobalt-dim);
   --color-accent-text: var(--accent-text);
-  --color-accent-soft: var(--accent-soft);
-  --color-field: var(--field);
-  --color-field-ink: var(--field-ink);
-  --color-field-dim: var(--field-dim);
-  --color-signal: var(--signal);
-  --color-signal-ink: var(--signal-ink);
-  --shadow-card: var(--shadow);
+  --color-hi: var(--hi);
+  --color-hi-ink: var(--hi-ink);
+  --color-laser: var(--laser);
+  --shadow-sheet: var(--sheet-shadow);
+  --shadow-lift: var(--lift-shadow);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html {
-  background: var(--bg);
+  background: url("/textures/felt.png") repeat, var(--board);
+  background-size: 320px 320px, auto;
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
-  background: var(--bg);
+  background: url("/textures/felt.png") repeat, var(--board);
+  background-size: 320px 320px, auto;
   color: var(--ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
-  background: var(--signal);
-  color: var(--signal-ink);
+  background: var(--hi);
+  color: var(--hi-ink);
 }
 
 @layer base {
   :focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--cobalt);
     outline-offset: 3px;
-    border-radius: 6px;
+    border-radius: 4px;
   }
-}
 
-a {
-  text-underline-offset: 0.22em;
-  text-decoration-thickness: 1px;
-}
+  a {
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
 
-h1,
-h2,
-h3 {
-  text-wrap: balance;
-}
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
 
-p {
-  text-wrap: pretty;
+  p {
+    text-wrap: pretty;
+  }
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--line-strong) transparent;
+  scrollbar-color: var(--board-dim) transparent;
 }
 
 .tabular {
   font-variant-numeric: tabular-nums;
+}
+
+/* Highlighter stroke; Highlight adds .is-on when the phrase scrolls into view. */
+.hl {
+  color: inherit;
+  background-color: transparent;
+  background-image: linear-gradient(100deg, transparent 0.15em, var(--hi) 0.3em, var(--hi) calc(100% - 0.3em), transparent calc(100% - 0.1em));
+  background-repeat: no-repeat;
+  background-size: 0% 0.82em;
+  background-position: 0 72%;
+  transition: background-size 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 0.12em;
+  margin: 0 -0.12em;
+}
+.hl.is-on {
+  background-size: 100% 0.82em;
+}
+:root[data-theme="dark"] .hl {
+  background-image: linear-gradient(100deg, transparent 0.15em, rgb(233 201 51 / 0.38) 0.3em, rgb(233 201 51 / 0.38) calc(100% - 0.3em), transparent calc(100% - 0.1em));
+}
+
+/* Presenter's laser pointer over figures. */
+.laser {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='9' fill='%23f2342b' fill-opacity='0.22'/%3E%3Ccircle cx='12' cy='12' r='4.5' fill='%23f2342b'/%3E%3Ccircle cx='10.6' cy='10.6' r='1.4' fill='%23ffd2cf'/%3E%3C/svg%3E")
+      12 12,
+    crosshair;
+}
+
+/* Pin-up: the sheet settles onto the board, then the pins press in. */
+@keyframes pin-up {
+  from {
+    opacity: 0;
+    transform: translateY(-28px) rotate(-0.8deg);
+  }
+  60% {
+    opacity: 1;
+  }
+}
+@keyframes pin-press {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.6);
+  }
+}
+.sheet {
+  animation: pin-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: 50% 0;
+}
+.pin {
+  animation: pin-press 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.65s;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -128,18 +188,7 @@ p {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-    filter: blur(6px);
-  }
-}
-
-.hero-rise {
-  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

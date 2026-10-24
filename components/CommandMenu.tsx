@@ -155,7 +155,7 @@ export default function CommandMenu() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[560px] overflow-hidden rounded-2xl bg-surface shadow-card ring-1 ring-line"
+            className="relative w-full max-w-[560px] overflow-hidden rounded-[4px] bg-paper shadow-lift ring-1 ring-line"
           >
             <div className="flex items-center gap-3 border-b border-line px-4">
               <Search size={18} className="shrink-0 text-ink-3" aria-hidden="true" />
@@ -172,9 +172,9 @@ export default function CommandMenu() {
                 aria-activedescendant={results[active] ? `cmd-${results[active].id}` : undefined}
                 role="combobox"
                 aria-expanded="true"
-                className="h-14 w-full bg-transparent text-[16px] text-ink caret-accent outline-none focus-visible:outline-none placeholder:text-ink-3"
+                className="h-14 w-full bg-transparent text-[16px] text-ink caret-cobalt outline-none focus-visible:outline-none placeholder:text-ink-3"
               />
-              <kbd className="hidden rounded-md border border-line-strong px-1.5 py-0.5 font-mono text-[11px] text-ink-3 sm:block">esc</kbd>
+              <kbd className="hidden rounded-[2px] border border-line-strong px-1.5 py-0.5 font-mono text-[11px] text-ink-3 sm:block">esc</kbd>
             </div>
             <ul ref={listRef} id="command-list" role="listbox" className="max-h-[min(420px,60vh)] overflow-y-auto p-2">
               {results.length === 0 && <li className="px-3 py-8 text-center text-sm text-ink-3">Nothing matches &ldquo;{query}&rdquo;.</li>}
@@ -195,16 +195,16 @@ export default function CommandMenu() {
                       data-index={i}
                       onPointerMove={() => setActive(i)}
                       onClick={() => runAt(i)}
-                      className={`flex h-11 cursor-pointer items-center gap-3 rounded-lg px-3 text-[15px] ${
-                        i === active ? "bg-accent text-accent-ink" : "text-ink"
+                      className={`flex h-11 cursor-pointer items-center gap-3 rounded-[3px] px-3 text-[15px] ${
+                        i === active ? "bg-cobalt text-cobalt-ink" : "text-ink"
                       }`}
                     >
-                      <span className={i === active ? "text-accent-ink" : "text-ink-3"} aria-hidden="true">
+                      <span className={i === active ? "text-cobalt-ink" : "text-ink-3"} aria-hidden="true">
                         {c.icon}
                       </span>
                       <span className="flex-1 truncate">{c.label}</span>
                       {c.hint && (
-                        <span className={`hidden truncate font-mono text-xs sm:block ${i === active ? "text-accent-ink/75" : "text-ink-3"}`}>
+                        <span className={`hidden truncate font-mono text-xs sm:block ${i === active ? "text-cobalt-ink/75" : "text-ink-3"}`}>
                           {c.hint}
                         </span>
                       )}

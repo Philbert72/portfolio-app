@@ -4,6 +4,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Project } from "@/data/projects";
 import { buildGraph, projectId, tagId, tick, type GraphLink, type GraphNode } from "@/lib/graph";
 
+function paintRank(n: GraphNode, related: Set<string> | null) {
+  const base = n.kind === "project" ? 2 : n.weight > 1 ? 1 : 0;
+  return related?.has(n.id) ? base + 3 : base;
+}
+
 // Rendering reads a copy, so the simulation can mutate its own nodes freely between frames.
 function snapshot(nodes: GraphNode[], links: GraphLink[]) {
   const copy = nodes.map((n) => ({ ...n }));
@@ -179,8 +184,8 @@ export default function WorkGraph({
                   y1={a.y}
                   x2={b.x}
                   y2={b.y}
-                  stroke={lit ? "var(--signal)" : "var(--field-ink)"}
-                  strokeOpacity={lit ? 0.95 : related ? 0.08 : shown ? 0.28 : 0.08}
+                  stroke={lit ? "var(--cobalt)" : "var(--ink)"}
+                  strokeOpacity={lit ? 0.95 : related ? 0.08 : shown ? 0.3 : 0.08}
                   strokeWidth={lit ? 1.6 : 1}
                   style={{ transition: "stroke-opacity 200ms ease, stroke 200ms ease" }}
                 />
@@ -188,7 +193,10 @@ export default function WorkGraph({
             })}
           </g>
           <g>
-            {s.nodes.map((n) => {
+            {[...s.nodes]
+              // Paint order: plain tags, labelled tags, projects, then whatever is lit, so labels stay on top.
+              .sort((a, b) => paintRank(a, related) - paintRank(b, related))
+              .map((n) => {
               const lit = isLit(n.id);
               const shown = isVisibleNode(n);
               const isProject = n.kind === "project";
@@ -215,14 +223,14 @@ export default function WorkGraph({
                       width={r * 2}
                       height={r * 2}
                       rx={3}
-                      fill={hot ? "var(--signal)" : "var(--field-ink)"}
+                      fill={hot ? "var(--cobalt)" : "var(--ink)"}
                       style={{ transition: "fill 200ms ease" }}
                     />
                   ) : (
                     <circle
                       r={r}
-                      fill={selected || hot ? "var(--signal)" : "var(--field)"}
-                      stroke={selected || hot ? "var(--signal)" : "var(--field-ink)"}
+                      fill={selected || hot ? "var(--hi)" : "var(--paper-2)"}
+                      stroke="var(--ink)"
                       strokeWidth={1.5}
                       style={{ transition: "fill 200ms ease" }}
                     />
@@ -232,13 +240,13 @@ export default function WorkGraph({
                       x={flip ? -(r + 7) : r + 7}
                       textAnchor={flip ? "end" : "start"}
                       y={4}
-                      fill={hot || selected ? "var(--signal)" : "var(--field-ink)"}
-                      fillOpacity={isProject || hot || selected ? 1 : 0.72}
+                      fill={hot || selected ? "var(--accent-text)" : "var(--ink)"}
+                      fillOpacity={isProject || hot || selected ? 1 : 0.75}
                       fontSize={isProject ? 13 : 11}
                       fontWeight={isProject ? 600 : 400}
                       fontFamily={isProject ? "var(--font-sans)" : "var(--font-mono)"}
                       style={{ pointerEvents: "none", paintOrder: "stroke" }}
-                      stroke="var(--field)"
+                      stroke="var(--paper-2)"
                       strokeWidth={4}
                       strokeLinejoin="round"
                     >

@@ -55,17 +55,17 @@ export default function SiteNav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300 ${
-        scrolled || menuOpen ? "bg-bg/90 shadow-[0_1px_0_var(--line)] backdrop-blur-md" : "bg-transparent"
+        scrolled || menuOpen ? "bg-board/95 shadow-[0_1px_0_rgb(0_0_0/0.25)] backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-md focus:bg-ink focus:px-3 focus:py-2 focus:text-bg"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-md focus:bg-paper focus:px-3 focus:py-2 focus:text-ink"
       >
         Skip to content
       </a>
       <nav aria-label="Primary" className="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-4 px-4 sm:px-8">
-        <a href="#top" className="font-display text-[19px] font-bold tracking-[-0.03em]">
+        <a href="#top" className="font-display text-[18px] font-extrabold tracking-[-0.02em] text-board-ink [font-stretch:115%]">
           Philbert Tan
         </a>
 
@@ -77,8 +77,8 @@ export default function SiteNav() {
                 <a
                   href={`#${s.id}`}
                   aria-current={active ? "location" : undefined}
-                  className={`relative z-10 block rounded-full px-4 py-2 text-[14.5px] font-medium transition-colors duration-200 ${
-                    active ? "text-bg" : "text-ink-2 hover:text-ink"
+                  className={`relative z-10 block rounded-[3px] px-4 py-2 text-[14.5px] font-medium transition-colors duration-200 ${
+                    active ? "text-ink" : "text-board-dim hover:text-board-ink"
                   }`}
                 >
                   {s.label}
@@ -86,7 +86,7 @@ export default function SiteNav() {
                 {active && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 rounded-full bg-ink"
+                    className="absolute inset-0 rounded-[3px] bg-paper"
                     transition={{ type: "spring", stiffness: 420, damping: 36 }}
                   />
                 )}
@@ -99,17 +99,17 @@ export default function SiteNav() {
           <button
             type="button"
             onClick={openCommands}
-            className="hidden h-10 items-center gap-2 rounded-full border border-line-strong pl-3 pr-2 text-sm text-ink-2 transition-colors hover:border-ink hover:text-ink sm:inline-flex"
+            className="hidden h-10 items-center gap-2 rounded-[3px] border border-board-dim/40 pl-3 pr-2 text-sm text-board-dim transition-colors hover:border-board-ink hover:text-board-ink sm:inline-flex"
           >
             <Search size={15} aria-hidden="true" />
             Search
-            <kbd className="rounded-md bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] text-ink-3">⌘K</kbd>
+            <kbd className="rounded-[2px] bg-white/10 px-1.5 py-0.5 font-mono text-[11px] text-board-dim">⌘K</kbd>
           </button>
           <button
             type="button"
             onClick={toggle}
             aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-            className="grid size-10 place-items-center rounded-full border border-line-strong text-ink-2 transition-colors hover:border-ink hover:text-ink"
+            className="grid size-10 place-items-center rounded-[3px] border border-board-dim/40 text-board-dim transition-colors hover:border-board-ink hover:text-board-ink"
           >
             <AnimatePresence mode="wait" initial={false}>
               <motion.span
@@ -129,7 +129,7 @@ export default function SiteNav() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="grid size-10 place-items-center rounded-full bg-ink text-bg md:hidden"
+            className="grid size-10 place-items-center rounded-[3px] bg-paper text-ink md:hidden"
           >
             {menuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
           </button>
@@ -152,8 +152,8 @@ export default function SiteNav() {
                   <a
                     href={`#${s.id}`}
                     onClick={() => setMenuOpen(false)}
-                    className={`flex h-14 items-center justify-between border-b border-line font-display text-2xl font-semibold tracking-[-0.02em] ${
-                      current === s.id ? "text-accent-text" : "text-ink"
+                    className={`flex h-14 items-center justify-between border-b border-white/10 font-display text-2xl font-bold tracking-[-0.02em] [font-stretch:110%] ${
+                      current === s.id ? "text-hi" : "text-board-ink"
                     }`}
                   >
                     {s.label}
@@ -167,7 +167,7 @@ export default function SiteNav() {
                     setMenuOpen(false);
                     openCommands();
                   }}
-                  className="mt-4 inline-flex h-11 items-center gap-2 rounded-full border border-line-strong px-4 text-sm text-ink-2"
+                  className="mt-4 inline-flex h-11 items-center gap-2 rounded-[3px] border border-board-dim/40 px-4 text-sm text-board-dim"
                 >
                   <Search size={15} aria-hidden="true" /> Search everything
                 </button>
