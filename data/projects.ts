@@ -29,7 +29,7 @@ export const projects: Project[] = [
     tags: ["Python", "Scikit-Learn", "Pandas", "ML"], 
     url: "https://github.com/Philbert72/Healthcare-Disease-Prediction", 
     category: "ml",
-    image: "/projects/Disease-Prediction.png"
+    image: "/projects/disease-correlation.png"
   },
   { 
     num: "03", 
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     tags: ["Signal Processing", "NMF", "Scikit-Learn"], 
     url: "https://github.com/Philbert72/Classify-Music-Genre-NMF", 
     category: "ml",
-    image: "/projects/classify-music.png"
+    image: "/projects/music-methodology.png"
   },
   { 
     num: "06", 
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     tags: ["Python", "Seaborn", "Pandas", "NumPy"], 
     url: "https://github.com/Philbert72/Wine-Quality-Analysis", 
     category: "ml",
-    image: "/projects/Wine-Quality.png"
+    image: "/projects/wine-boxplots.png"
   },
   {
   num: "08", 
