@@ -11,6 +11,16 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    num: "09",
+    title: "Federated HGNN for Multi-Cloud Access Anomalies",
+    short: "Fed. HGNN",
+    desc: "Thesis research: detecting compromised identities in multi-cloud environments without sharing raw logs. CloudTrail activity becomes a heterogeneous graph of users, IPs and services, classified by a HANConv model trained centrally and then across three federated clients with FedAvg.",
+    tags: ["PyTorch Geometric", "GNN", "Federated Learning", "Cloud Security"],
+    url: "https://github.com/Philbert72/federated-hgnn-anomaly-detection",
+    category: "research",
+    image: "/projects/federated-hgnn-graph.png"
+  },
   { 
     num: "01", 
     title: "GNNs for Cloud Security",
@@ -25,8 +35,8 @@ export const projects: Project[] = [
     num: "02", 
     title: "Disease Prediction System",
     short: "Disease Pred.", 
-    desc: "Diagnostic support tool using Scikit-Learn to predict patient health outcomes. Optimized for high recall on clinical symptom datasets.", 
-    tags: ["Python", "Scikit-Learn", "Pandas", "ML"], 
+    desc: "Multi-label model predicting 10 diseases at once from patient demographics and clinical metrics. Moves from a balanced Random Forest baseline to XGBoost with a lowered decision threshold, so the model catches sick patients instead of defaulting to healthy.", 
+    tags: ["Python", "XGBoost", "Scikit-Learn", "Pandas"], 
     url: "https://github.com/Philbert72/Healthcare-Disease-Prediction", 
     category: "ml",
     image: "/projects/disease-correlation.png"
@@ -35,8 +45,8 @@ export const projects: Project[] = [
     num: "03", 
     title: "LunarLander DQN Agent",
     short: "LunarLander", 
-    desc: "Deep Q-Network implementation for autonomous landing. Agent navigates a physics simulation environment using Reinforcement Learning.", 
-    tags: ["Python", "DQN", "RL", "OpenAI Gym"], 
+    desc: "Deep Q-Network agent that learns to land a spacecraft between the flags in Gymnasium's LunarLander-v3 physics simulation, using thrust efficiently.", 
+    tags: ["Python", "PyTorch", "DQN", "RL", "Gymnasium"], 
     url: "https://github.com/Philbert72/DQN-agent-for-LunarLander", 
     category: "ml",
     image: "/projects/LunarLander.png"
@@ -46,7 +56,7 @@ export const projects: Project[] = [
     title: "Flight Price Prediction",
     short: "Flight Prices", 
     desc: "End-to-end data science pipeline predicting airline prices using Random Forest Regression with complex temporal feature extraction.", 
-    tags: ["Python", "Flask", "Feature Engineering", "ML"], 
+    tags: ["Python", "Scikit-Learn", "Feature Engineering", "ML"], 
     url: "https://github.com/Philbert72/Flight-Price-Prediction", 
     category: "ml",
     image: "/projects/Flight-Price.png"
@@ -65,7 +75,7 @@ export const projects: Project[] = [
     num: "06", 
     title: "HomeHeal",
     short: "HomeHeal", 
-    desc: "Laravel-based web application streamlining home-based healthcare services, built with PHP and MySQL.", 
+    desc: "Laravel platform connecting physical therapists with patients, improving recovery through remote monitoring and digital management of therapy protocols.", 
     tags: ["Laravel", "PHP", "MySQL", "Tailwind"], 
     url: "https://github.com/Philbert72/HomeHeal", 
     category: "web",
@@ -75,8 +85,8 @@ export const projects: Project[] = [
     num: "07", 
     title: "Wine Quality Analysis",
     short: "Wine Quality", 
-    desc: "Predicting wine quality from the WineQT dataset, handling class imbalance and EDA to optimize classification.", 
-    tags: ["Python", "Seaborn", "Pandas", "NumPy"], 
+    desc: "Predicting wine quality from physicochemical properties in the WineQT dataset: EDA, oversampling for under-represented quality scores, and baseline and tuned XGBoost classifiers.", 
+    tags: ["Python", "XGBoost", "Pandas", "Seaborn"], 
     url: "https://github.com/Philbert72/Wine-Quality-Analysis", 
     category: "ml",
     image: "/projects/wine-boxplots.png"
@@ -85,8 +95,8 @@ export const projects: Project[] = [
   num: "08", 
   title: "FURB",
     short: "FURB",
-  desc: "A React and Node.js-based marketplace featuring a secure relational database for property and inventory management. It integrates an AI-powered search for high-precision discovery and a real-time chatroom to facilitate seamless communication between users.",
-  tags: ["React", "Node.js", "Express", "MongoDB", "JavaScript"],
+  desc: "A React and Node.js marketplace for furniture and household items, backed by MongoDB. It adds an AI-powered search built on the OpenAI API and a real-time Socket.IO chatroom so buyers and sellers can talk.",
+  tags: ["React", "Node.js", "Express", "MongoDB", "Socket.IO"],
   url: "https://github.com/Philbert72/FURB",
   category: "web",
   image: "/projects/furb.png"

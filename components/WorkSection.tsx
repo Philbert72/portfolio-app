@@ -133,7 +133,7 @@ export default function WorkSection({ intro }: { intro: React.ReactNode }) {
               </div>
             </div>
             <figcaption className="mt-3 text-[14px] leading-relaxed text-ink-2">
-              <span className="font-mono text-[12px] font-medium text-ink">Fig. 1.</span> Eight projects and the
+              <span className="font-mono text-[12px] font-medium text-ink">Fig. 1.</span> Nine projects and the
               technologies they share. Hover to trace a connection, click a technology to filter, drag nodes to
               rearrange, click a project to jump to its figure.
             </figcaption>
