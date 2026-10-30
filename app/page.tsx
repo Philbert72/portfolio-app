@@ -1,305 +1,309 @@
-"use client";
+import Image from "next/image";
+import { ArrowUpRight, Mail } from "lucide-react";
+import { certifications, profile, skills, timeline } from "@/data/profile";
+import { GitHubIcon, InstagramIcon, LinkedInIcon } from "@/components/BrandIcons";
+import CommandMenu from "@/components/CommandMenu";
+import CopyEmailButton from "@/components/CopyEmailButton";
+import Highlight from "@/components/Highlight";
+import PanelHeading from "@/components/PanelHeading";
+import SiteNav from "@/components/SiteNav";
+import Toaster from "@/components/Toaster";
+import WorkSection from "@/components/WorkSection";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { projects, Project } from "@/data/projects";
-import FadeIn from "@/components/FadeIn";
+const references = [
+  { label: "GitHub", handle: "github.com/Philbert72", href: profile.links.github, Icon: GitHubIcon },
+  { label: "LinkedIn", handle: "linkedin.com/in/philbert-tan", href: profile.links.linkedin, Icon: LinkedInIcon },
+  { label: "Instagram", handle: "instagram.com/philbert_tan11", href: profile.links.instagram, Icon: InstagramIcon },
+];
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<string>("all");
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [showToast, setShowToast] = useState(false);
-
-  // Handle cursor glow movement
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText("philtan3805@gmail.com");
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 2200);
-  };
-
-  const filteredProjects = activeTab === "all" 
-    ? projects 
-    : projects.filter(p => p.category === activeTab);
-
   return (
-    <div className="relative min-h-screen bg-brand-dark text-brand-light selection:bg-sky-500/30 overflow-x-hidden font-sans">
-      {/* Background Noise Layer */}
-      <div className="noise fixed inset-0 pointer-events-none opacity-[0.04] z-0" />
-<div className="fixed top-[-150px] right-[-150px] w-[600px] h-[600px] bg-sky-400/12 blur-[140px] rounded-full pointer-events-none z-0" />
-<div className="fixed bottom-[10%] left-[-100px] w-[500px] h-[500px] bg-emerald-400/8 blur-[130px] rounded-full pointer-events-none z-0" />
-      {/* Cursor Glow */}
-      <div 
-        className="fixed w-[300px] h-[300px] bg-sky-400/8 blur-[100px] rounded-full pointer-events-none z-0 transition-transform duration-300 ease-out"
-        style={{ left: mousePos.x, top: mousePos.y, transform: 'translate(-50%, -50%)' }}
-      />
+    <>
+      <SiteNav />
+      <main id="main" className="px-2 pb-10 pt-[4.5rem] sm:px-6 md:pt-20">
+        <article className="sheet relative mx-auto max-w-[1280px] bg-paper shadow-sheet">
+          <Pins />
+          <Banner />
+          <div className="px-4 py-10 sm:px-8 md:px-10 lg:py-9">
+            <WorkSection intro={<Introduction />} />
+            <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:gap-12">
+              <Experience />
+              <Toolkit />
+            </div>
+            <Contact />
+          </div>
+          <SheetFooter />
+        </article>
+      </main>
+      <CommandMenu />
+      <Toaster />
+    </>
+  );
+}
 
-      {/* Nav */}
-      <nav className="fixed top-0 inset-x-0 z-50 flex justify-between items-center px-10 py-5 bg-[#080c12]/80 backdrop-blur-xl border-b border-white/5">
-        <div className="font-syne font-extrabold text-lg bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">PT</div>
-        <ul className="hidden md:flex gap-8 list-none">
-          {['About', 'Work', 'Contact'].map((item) => (
-            <li key={item}>
-              <a href={`#${item.toLowerCase()}`} className="text-[13px] uppercase tracking-wider text-white/50 hover:text-sky-400 transition-colors">
-                {item}
+function Pins() {
+  return (
+    <div aria-hidden="true">
+      {["left-4 top-4", "right-4 top-4", "left-4 bottom-4 hidden sm:block", "right-4 bottom-4 hidden sm:block"].map((pos, i) => (
+        <span key={pos} className={`absolute ${pos} z-20 size-0`}>
+          <span
+            className="pin absolute left-0 top-0 block size-[19px] rounded-full bg-[radial-gradient(circle_at_35%_30%,#ff8a7a_0,var(--pin)_38%,#a5241a_100%)] shadow-[3px_5px_4px_-1px_rgb(0_0_0/0.4)]"
+            style={{ animationDelay: `${0.65 + i * 0.08}s`, transform: "translate(-50%, -50%)" }}
+          />
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function Banner() {
+  return (
+    <header id="top" className="bg-cobalt px-4 pb-8 pt-12 text-cobalt-ink sm:px-8 md:px-10 md:pb-7 md:pt-9">
+      <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <h1 className="font-display text-[clamp(3.25rem,10vw,6rem)] font-extrabold leading-[0.88] tracking-[-0.035em] [font-stretch:118%]">
+            Philbert
+          </h1>
+          <p className="mt-4 max-w-[40ch] font-display text-[clamp(1.15rem,2.2vw,1.5rem)] font-medium leading-snug tracking-[-0.01em] [font-stretch:105%]">
+            Machine learning research, and the systems built around it
+          </p>
+          <p className="mt-4 flex flex-col gap-1 text-[15px] leading-relaxed text-cobalt-dim md:flex-row md:flex-wrap md:gap-x-6">
+            <span className="font-semibold text-cobalt-ink">
+              Philbert<sup className="ml-0.5">1,2</sup>
+            </span>
+            <span>
+              <sup>1</sup> BINUS University, Jakarta
+            </span>
+            <span>
+              <sup>2</sup> National Sun Yat-sen University, Kaohsiung (exchange)
+            </span>
+          </p>
+        </div>
+        <p className="flex items-center gap-2.5 self-start rounded-[3px] border border-cobalt-ink/35 px-3.5 py-2 text-[14px] font-medium lg:self-end">
+          <span className="relative flex size-2.5">
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-hi opacity-70" />
+            <span className="relative inline-flex size-2.5 rounded-full bg-hi" />
+          </span>
+          Open to internships and research collaborations
+        </p>
+      </div>
+    </header>
+  );
+}
+
+function Introduction() {
+  return (
+    <section id="about" aria-labelledby="about-title" className="lg:col-span-4">
+      <PanelHeading n={1} id="about-title">
+        Introduction
+      </PanelHeading>
+
+      <div className="mt-5 grid grid-cols-[minmax(0,148px)_1fr] gap-4">
+        <figure>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[3px] bg-paper-2">
+            <Image src="/profile.png" alt="Portrait of Philbert" fill preload sizes="148px" className="object-cover" />
+          </div>
+          <figcaption className="mt-1.5 font-mono text-[11px] text-ink-3">The author.</figcaption>
+        </figure>
+        <dl className="self-start text-[13.5px]">
+          {[
+            ["Published", "IEEE AiDAS 2025"],
+            ["GPA", "3.81 / 4.00"],
+            ["Exchange", "NSYSU, Taiwan"],
+            ["Focus", "ML · GNNs · Security"],
+          ].map(([k, v]) => (
+            <div key={k} className="border-b border-line py-1 first:pt-0">
+              <dt className="text-[11.5px] text-ink-3">{k}</dt>
+              <dd className="tabular font-semibold leading-snug text-ink">{v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div className="mt-4 space-y-3 text-[15.5px] leading-relaxed text-ink-2">
+        <p>
+          I&apos;m a Computer Science student at BINUS University, spending this term at NSYSU in Taiwan. I research and
+          build <Highlight delay={900}>machine learning systems</Highlight>, from graph neural networks that flag cloud
+          data breaches to an agent that learns to land a lunar module.
+        </p>
+        <p>
+          My <Highlight delay={1300}>IEEE paper</Highlight> detects data breaches in cloud environments in real time. I
+          like messy, high-dimensional data and models that have to be useful, not just accurate.
+        </p>
+      </div>
+
+      <Handout />
+      <a
+        href={`mailto:${profile.email}`}
+        className="mt-3 flex h-11 items-center justify-center gap-2 rounded-[3px] border border-line-strong text-[14.5px] font-semibold text-ink transition-colors hover:border-ink"
+      >
+        <Mail size={16} aria-hidden="true" />
+        Email me
+      </a>
+    </section>
+  );
+}
+
+/** The pocket of take-away copies pinned beside a poster: here, the CV. */
+function Handout() {
+  return (
+    <a
+      href={profile.resume}
+      download="Philbert CV.pdf"
+      className="group relative mt-5 block rounded-[3px] border border-line-strong bg-paper-2 px-4 pb-4 pt-6 transition-colors hover:border-ink"
+    >
+      <span aria-hidden="true" className="absolute inset-x-4 -top-3 h-6">
+        <span className="absolute inset-x-3 top-0 h-full rounded-t-[2px] border border-b-0 border-line bg-paper transition-transform duration-500 ease-out-expo group-hover:-translate-y-1.5" />
+        <span className="absolute inset-x-1.5 top-1 h-full rounded-t-[2px] border border-b-0 border-line bg-paper transition-transform duration-500 ease-out-expo group-hover:-translate-y-1" />
+      </span>
+      <span className="relative flex items-center justify-between gap-4">
+        <span>
+          <span className="block font-display text-[18px] font-bold tracking-[-0.01em] [font-stretch:110%]">Take a copy</span>
+          <span className="block text-[14px] text-ink-2">Curriculum vitae, PDF</span>
+        </span>
+        <span className="grid size-10 place-items-center rounded-full bg-cobalt text-cobalt-ink transition-transform duration-300 ease-out-expo group-hover:translate-y-0.5">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M12 4v12M6 11l6 6 6-6M5 20h14" />
+          </svg>
+        </span>
+      </span>
+    </a>
+  );
+}
+
+function Experience() {
+  return (
+    <section id="record" aria-labelledby="record-title" className="lg:col-span-7">
+      <PanelHeading n={3} id="record-title">
+        Experience
+      </PanelHeading>
+      <ol className="mt-2">
+        {timeline.map((t) => (
+          <li key={t.title} className="group grid gap-x-6 gap-y-1 border-b border-line py-5 sm:grid-cols-[120px_1fr]">
+            <span className="tabular pt-1 font-mono text-[12.5px] text-ink-3">{t.when}</span>
+            <div>
+              <h3 className="text-[17px] font-semibold leading-snug">
+                {t.kind === "publication" ? <Highlight>{t.title}</Highlight> : t.title}
+              </h3>
+              <p className="text-[14.5px] text-ink-2">{t.org}</p>
+              {t.detail && <p className="mt-1.5 max-w-[62ch] text-[14.5px] leading-relaxed text-ink-2">{t.detail}</p>}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+function Toolkit() {
+  return (
+    <section aria-labelledby="toolkit-title" className="lg:col-span-5">
+      <PanelHeading n={4} id="toolkit-title">
+        Methods and tools
+      </PanelHeading>
+      <dl className="mt-2">
+        {skills.map((s) => (
+          <div key={s.group} className="border-b border-line py-4">
+            <dt className="text-[13px] font-medium text-ink-3">{s.group}</dt>
+            <dd className="mt-2 flex flex-wrap gap-1.5">
+              {s.items.map((item) => (
+                <span key={item} className="rounded-[2px] border border-line px-1.5 py-0.5 font-mono text-[12px] text-ink-2">
+                  {item}
+                </span>
+              ))}
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <h3 className="mt-7 text-[13px] font-medium text-ink-3">Certifications</h3>
+      <ul className="mt-2">
+        {certifications.map((c) => (
+          <li key={c.name} className="flex flex-wrap items-baseline justify-between gap-x-4 border-b border-line py-2.5 text-[14.5px]">
+            <span>{c.name}</span>
+            {c.when && <span className="tabular font-mono text-[12px] text-ink-3">{c.when}</span>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" aria-labelledby="contact-title" className="mt-16 grid gap-10 lg:grid-cols-12 lg:gap-12">
+      <div className="lg:col-span-7">
+        <PanelHeading n={5} id="contact-title">
+          Conclusion
+        </PanelHeading>
+        <p className="mt-6 max-w-[16ch] font-display text-[clamp(2.25rem,5.5vw,4rem)] font-extrabold leading-[0.95] tracking-[-0.03em] [font-stretch:115%]">
+          Let&apos;s build something <Highlight>remarkable</Highlight>.
+        </p>
+        <p className="mt-5 max-w-[48ch] text-[16px] leading-relaxed text-ink-2">
+          Open to research collaborations, internships and interesting problems. Questions about anything on this
+          poster are welcome.
+        </p>
+        <div className="mt-7 flex flex-wrap items-center gap-3">
+          <a
+            href={`mailto:${profile.email}`}
+            className="group inline-flex h-12 items-center gap-2.5 rounded-[3px] bg-cobalt px-5 text-[15px] font-semibold text-cobalt-ink transition-transform duration-200 ease-out-expo hover:-translate-y-0.5"
+          >
+            <Mail size={17} aria-hidden="true" />
+            {profile.email}
+          </a>
+          <CopyEmailButton
+            email={profile.email}
+            className="inline-flex h-12 items-center gap-2 rounded-[3px] border border-line-strong px-5 text-[15px] font-semibold text-ink transition-colors hover:border-ink"
+          />
+        </div>
+      </div>
+
+      <div className="lg:col-span-5">
+        <h2 className="border-b-2 border-ink pb-2 font-display text-[19px] font-bold [font-stretch:110%]">References</h2>
+        <ol className="mt-1">
+          {references.map(({ label, handle, href, Icon }, i) => (
+            <li key={label}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group grid grid-cols-[28px_20px_1fr_auto] items-center gap-2 border-b border-line py-3.5 text-[14.5px]"
+              >
+                <span className="tabular font-mono text-[12px] text-ink-3">[{i + 1}]</span>
+                <Icon size={16} className="text-ink-2" />
+                <span>
+                  <span className="font-semibold">{label}.</span>{" "}
+                  <span className="font-mono text-[12.5px] text-ink-2 group-hover:text-accent-text group-hover:underline">{handle}</span>
+                </span>
+                <ArrowUpRight size={15} className="text-ink-3 transition-transform duration-300 ease-out-expo group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent-text" aria-hidden="true" />
+                <span className="sr-only">(opens in a new tab)</span>
               </a>
             </li>
           ))}
-        </ul>
-        <a href="mailto:philtan3805@gmail.com" className="bg-gradient-to-r from-sky-400 to-emerald-400 text-[#080c12] px-5 py-2.5 rounded-full text-xs font-bold hover:opacity-80 transition-opacity">
-          Say hello →
-        </a>
-      </nav>
-
-      <div className="relative z-10 pt-20">
-        {/* Hero */}
-<FadeIn>
-  <section id="hero" className="min-h-[80vh] flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-12 px-6 md:px-20 max-w-[900px] mx-auto pt-32">
-    <div className="flex-1 space-y-8 text-center md:text-left">
-      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 border border-sky-400/30 rounded-full text-[10px] text-sky-400 uppercase tracking-widest mb-4">
-        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-        Available for opportunities
-      </div>
-      
-      <h1 className="font-syne font-extrabold text-[clamp(48px,8vw,86px)] leading-[0.92] tracking-tighter text-[#f0f4f8]">
-        Philbert<br />
-        <span className="bg-gradient-to-r from-sky-400 via-emerald-400 to-violet-400 bg-clip-text text-transparent">Tan.</span>
-      </h1>
-      
-      <p className="text-white/45 text-base font-light leading-relaxed max-w-[450px]">
-        6th Semester CS student at BINUS University & Exchange Student at NSYSU Taiwan. 
-        Specializing in AI research, Machine Learning, and Blockchain technology.
-      </p>
-
-          <div className="flex items-center gap-6 pt-2 justify-center md:justify-start">
-  <div className="flex items-center gap-8 pt-2 justify-center md:justify-start">
-  <a 
-    href="https://github.com/Philbert72" 
-    target="_blank" 
-    className="text-[13px] text-white/40 hover:text-sky-400 transition-colors tracking-wider uppercase font-medium border-b border-transparent hover:border-sky-400/50 pb-1"
-  >
-    GitHub
-  </a>
-  <a 
-    href="https://www.linkedin.com/in/philbert-tan" 
-    target="_blank" 
-    className="text-[13px] text-white/40 hover:text-blue-400 transition-colors tracking-wider uppercase font-medium border-b border-transparent hover:border-blue-400/50 pb-1"
-  >
-    LinkedIn
-  </a>
-</div>
-</div>
-
-      <div className="flex gap-3 pt-4 justify-center md:justify-start">
-        <a href="#work" className="bg-gradient-to-r from-sky-400 to-emerald-400 text-[#080c12] px-7 py-3.5 rounded-full text-[13px] font-bold hover:opacity-90 transition-all">
-          View Work
-        </a>
-        <a href="/Phil_resume.pdf" download className="border border-white/10 text-white/70 px-7 py-3.5 rounded-full text-[13px] hover:border-white/30 transition-all">
-          Download CV
-        </a>
-      </div>
-    </div>
-
-    {/* PROFILE PICTURE CONTAINER */}
-    <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72">
-      {/* Decorative Glow behind photo */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-sky-500 to-emerald-500 rounded-[2rem] rotate-6 opacity-10"></div>
-      
-      {/* Photo Frame */}
-      <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl">
-        <img 
-          src="/profile.png" 
-          alt="Philbert Tan" 
-          className="w-full h-full object-cover"
-        />
-      </div>
-    </div>
-  </section>
-</FadeIn>
-
-        {/* About */}
-        <section id="about" className="px-10 py-24 max-w-[900px] mx-auto">
-          <FadeIn>
-            <p className="text-[11px] uppercase tracking-[0.15em] text-sky-400 font-medium mb-4">Background</p>
-            <h2 className="font-syne font-bold text-[clamp(28px,4vw,40px)] tracking-tight text-[#f0f4f8] leading-none mb-12">
-              Built on curiosity,<br />driven by research.
-            </h2>
-            <div className="grid md:grid-cols-2 gap-10 items-start">
-              <div className="text-[15px] leading-relaxed text-white/55 space-y-4">
-                <p>I&apos;m a Computer Science student at <strong className="text-white/90 font-normal">BINUS University</strong>, currently on an exchange program at <strong className="text-white/90 font-normal">NSYSU Taiwan</strong>.</p>
-                <p>I&apos;ve published IEEE research on detecting data breaches in cloud environments using GNNs, and I love turning complex ML problems into practical tools.</p>
-              </div>
-              <div className="border border-white/5 bg-white/2 rounded-2xl overflow-hidden">
-                <StatRow label="Exchange" value="NSYSU, Taiwan" />
-                <StatRow label="GPA" value="3.81 / 4.00" />
-                <StatRow label="Focus" value="ML / GNN / Security" />
-              </div>
-            </div>
-          </FadeIn>
-        </section>
-
-        {/* Work */}
-        <section id="work" className="px-10 py-24 max-w-[900px] mx-auto">
-          <FadeIn>
-            <p className="text-[11px] uppercase tracking-[0.15em] text-sky-400 font-medium mb-4">Selected Work</p>
-            <h2 className="font-syne font-bold text-[clamp(28px,4vw,40px)] tracking-tight text-[#f0f4f8] leading-none mb-12">Things I&apos;ve built.</h2>
-            
-            {/* Tabs */}
-            <div className="flex gap-4 border-b border-white/5 mb-10">
-              {['all', 'ml', 'web', 'research'].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`pb-3 px-2 text-[13px] capitalize transition-all border-b-2 ${
-                    activeTab === tab ? "text-sky-400 border-sky-400" : "text-white/40 border-transparent hover:text-white/70"
-                  }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-
-            <div className="flex flex-col border-t border-white/5">
-              <AnimatePresence mode="popLayout">
-                {filteredProjects.map((project) => (
-                  <ProjectCard key={project.num} project={project} />
-                ))}
-              </AnimatePresence>
-            </div>
-          </FadeIn>
-        </section>
-
-        {/* Contact */}
-        <section id="contact" className="px-10 py-24 max-w-[900px] mx-auto">
-          <FadeIn>
-            <div className="bg-white/2 border border-white/5 rounded-[24px] p-16 text-center relative overflow-hidden">
-              <div className="absolute top-0 inset-x-[20%] h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
-              <h2 className="font-syne font-extrabold text-[clamp(32px,5vw,56px)] tracking-tighter text-[#f0f4f8] leading-none mb-4">
-                Let&apos;s build<br />something <span className="bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">remarkable.</span>
-              </h2>
-              <p className="text-sm text-white/35 mb-10">Open to research collabs, internships, and interesting problems.</p>
-              <div className="flex gap-3 justify-center flex-wrap">
-                <a href="mailto:philtan3805@gmail.com" className="bg-gradient-to-r from-sky-400 to-emerald-400 text-[#080c12] px-7 py-3.5 rounded-full text-[13px] font-bold">philtan3805@gmail.com</a>
-                <button onClick={copyEmail} className="border border-white/10 text-white/70 px-7 py-3.5 rounded-full text-[13px] hover:border-white/30 transition-all">Copy email</button>
-              </div>
-
-              <div className="flex justify-center gap-8 pt-8 border-t border-white/5">
-        <a 
-          href="https://github.com/Philbert72" 
-          target="_blank" 
-          className="text-[12px] uppercase tracking-widest text-white/20 hover:text-white transition-colors font-medium"
-        >
-          GitHub
-        </a>
-        <a 
-          href="https://www.linkedin.com/in/philbert-tan" 
-          target="_blank" 
-          className="text-[12px] uppercase tracking-widest text-white/20 hover:text-white transition-colors font-medium"
-        >
-          LinkedIn
-        </a>
-        <a 
-          href="https://www.instagram.com/philbert_tan11" 
-          target="_blank" 
-          className="text-[12px] uppercase tracking-widest text-white/20 hover:text-white transition-colors font-medium"
-        >
-          Instagram
-        </a>
-      </div>
-            </div>
-          </FadeIn>
-        </section>
-
-        
-
-        <footer className="max-w-[900px] mx-auto px-10 py-6 border-t border-white/5 flex justify-between items-center text-[12px] text-white/25">
-          <span>Philbert © 2026</span>
-          <span>CS × AI × Research</span>
-        </footer>
-      </div>
-
-      {/* Toast */}
-      <div className={`fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-400/10 border border-emerald-400/30 text-emerald-400 px-5 py-2.5 rounded-full text-[13px] transition-all z-[999] ${showToast ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-        Email copied!
-      </div>
-    </div>
-  );
-}
-
-/* Helper Components */
-
-function HeroMeta({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex flex-col gap-1">
-      <span className="text-[10px] uppercase tracking-widest text-white/30">{label}</span>
-      <span className="text-[13px] text-white/80">{value}</span>
-    </div>
-  );
-}
-
-function StatRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex justify-between items-center p-4 bg-white/[0.02] border-b border-white/5 last:border-none">
-      <span className="text-[12px] text-white/35 tracking-tight">{label}</span>
-      <span className="text-[13px] text-white/85 font-medium">{value}</span>
-    </div>
-  );
-}
-
-function ProjectCard({ project }: { project: Project }) {
-  return (
-    <motion.a
-      href={project.url}
-      target="_blank"
-      layout
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      className="group relative flex flex-col md:flex-row justify-between items-start py-8 border-b border-white/5 cursor-pointer no-underline gap-8"
-    >
-      {/* Project Image Preview */}
-      <div className="relative w-full md:w-56 h-36 rounded-xl overflow-hidden border border-white/10 shrink-0 bg-white/5">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100"
-        />
-      </div>
-
-      {/* Project Text Info */}
-      <div className="relative z-10 flex-1">
-        <div className="text-[11px] text-white/20 font-medium tracking-wider mb-3">{project.num}</div>
-        
-        <div className="font-syne font-bold text-xl md:text-2xl text-[#f0f4f8] mb-3 group-hover:text-sky-400 transition-colors tracking-tight">
-          {project.title}
-        </div>
-        
-        <div className="text-sm text-white/45 leading-relaxed max-w-[550px]">
-          {project.desc}
-        </div>
-        
-        <div className="flex gap-1.5 mt-5 flex-wrap">
-          {project.tags.map(tag => (
-            <span key={tag} className="text-[10px] px-2.5 py-1 border border-sky-400/20 text-sky-400 rounded-full bg-sky-400/5 uppercase tracking-tight font-medium">
-              {tag}
+          <li className="grid grid-cols-[28px_20px_1fr] items-center gap-2 border-b border-line py-3.5 text-[14.5px]">
+            <span className="tabular font-mono text-[12px] text-ink-3">[4]</span>
+            <span />
+            <span>
+              Graph Neural Networks for Cloud Security: Detecting Data Breaches in Real Time.{" "}
+              <em>IEEE AiDAS</em>, 2025.
             </span>
-          ))}
-        </div>
+          </li>
+        </ol>
       </div>
-      
-      <div className="hidden md:block text-white/20 text-2xl transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-sky-400 pt-8">
-        ↗
-      </div>
-      
-      {/* Hover Background Accent */}
-      <div className="absolute -inset-x-5 inset-y-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity z-0" />
-    </motion.a>
+    </section>
+  );
+}
+
+function SheetFooter() {
+  return (
+    <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-line px-4 py-5 text-[13px] text-ink-3 sm:px-8 md:px-10">
+      <span>© 2026 Philbert</span>
+      <span className="hidden sm:inline">
+        Press <kbd className="rounded-[2px] border border-line-strong px-1.5 py-0.5 font-mono text-[11px]">⌘K</kbd> or{" "}
+        <kbd className="rounded-[2px] border border-line-strong px-1.5 py-0.5 font-mono text-[11px]">/</kbd> to jump anywhere
+      </span>
+      <a href="#top" className="font-medium text-ink-2 hover:text-ink">
+        Back to top
+      </a>
+    </footer>
   );
 }

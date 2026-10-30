@@ -1,25 +1,198 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
-
 @import "tailwindcss";
 
-@theme {
-  --font-syne: "Syne", sans-serif;
-  --font-sans: "DM Sans", sans-serif;
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* The poster hall: a paper sheet pinned to a felt board. */
+:root {
+  --board: #3a3f47;
+  --board-ink: #eceef1;
+  --board-dim: #b9bec7;
+  --paper: #fbfbf9;
+  --paper-2: #f0f0eb;
+  --ink: #121418;
+  --ink-2: #41454d;
+  --ink-3: #5d626c;
+  --line: rgb(18 20 24 / 0.14);
+  --line-strong: rgb(18 20 24 / 0.28);
+  --cobalt: #1d3fd6;
+  --cobalt-ink: #ffffff;
+  --cobalt-dim: rgb(255 255 255 / 0.78);
+  --accent-text: #1d3fd6;
+  --hi: #ffe14a;
+  --hi-ink: #121418;
+  --laser: #f2342b;
+  --pin: #e2402f;
+  --sheet-shadow: 0 2px 3px rgb(0 0 0 / 0.18), 0 24px 48px -20px rgb(0 0 0 / 0.55);
+  --lift-shadow: 0 2px 4px rgb(18 20 24 / 0.08), 0 18px 36px -16px rgb(18 20 24 / 0.32);
+  color-scheme: light;
+}
+
+/* Hall lights dimmed: dark stock on a darker board. */
+:root[data-theme="dark"] {
+  --board: #15171c;
+  --board-ink: #dadde3;
+  --board-dim: #9196a1;
+  --paper: #17191e;
+  --paper-2: #1f2228;
+  --ink: #eceef2;
+  --ink-2: #b4b8c1;
+  --ink-3: #8f949e;
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.22);
+  --cobalt: #2a3fa8;
+  --accent-text: #a3b3ff;
+  --hi: #e9c933;
+  --sheet-shadow: 0 2px 3px rgb(0 0 0 / 0.5), 0 24px 48px -20px rgb(0 0 0 / 0.9);
+  --lift-shadow: 0 2px 4px rgb(0 0 0 / 0.4), 0 18px 36px -16px rgb(0 0 0 / 0.8);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --color-board: var(--board);
+  --color-board-ink: var(--board-ink);
+  --color-board-dim: var(--board-dim);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-cobalt: var(--cobalt);
+  --color-cobalt-ink: var(--cobalt-ink);
+  --color-cobalt-dim: var(--cobalt-dim);
+  --color-accent-text: var(--accent-text);
+  --color-hi: var(--hi);
+  --color-hi-ink: var(--hi-ink);
+  --color-laser: var(--laser);
+  --shadow-sheet: var(--sheet-shadow);
+  --shadow-lift: var(--lift-shadow);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  background: url("/textures/felt.png") repeat, var(--board);
+  background-size: 320px 320px, auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
-  background-color: #080c12;
-  color: #e8eaf0;
+  background: url("/textures/felt.png") repeat, var(--board);
+  background-size: 320px 320px, auto;
+  color: var(--ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Background Noise Texture used in your page.tsx */
-.noise {
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
+::selection {
+  background: var(--hi);
+  color: var(--hi-ink);
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--cobalt);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  a {
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--board-dim) transparent;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Highlighter stroke; Highlight adds .is-on when the phrase scrolls into view. */
+.hl {
+  color: inherit;
+  background-color: transparent;
+  background-image: linear-gradient(100deg, transparent 0.15em, var(--hi) 0.3em, var(--hi) calc(100% - 0.3em), transparent calc(100% - 0.1em));
+  background-repeat: no-repeat;
+  background-size: 0% 0.82em;
+  background-position: 0 72%;
+  transition: background-size 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 0.12em;
+  margin: 0 -0.12em;
+}
+.hl.is-on {
+  background-size: 100% 0.82em;
+}
+/* On dark stock the stroke stays a true highlighter: ink flips dark as the stroke lands. */
+:root[data-theme="dark"] .hl {
+  transition: background-size 0.9s cubic-bezier(0.65, 0, 0.35, 1), color 0.3s ease 0.4s;
+}
+:root[data-theme="dark"] .hl.is-on {
+  color: var(--hi-ink);
+}
+
+/* Presenter's laser pointer over figures. */
+.laser {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='9' fill='%23f2342b' fill-opacity='0.22'/%3E%3Ccircle cx='12' cy='12' r='4.5' fill='%23f2342b'/%3E%3Ccircle cx='10.6' cy='10.6' r='1.4' fill='%23ffd2cf'/%3E%3C/svg%3E")
+      12 12,
+    crosshair;
+}
+
+/* Pin-up: the sheet settles onto the board, then the pins press in. */
+@keyframes pin-up {
+  from {
+    opacity: 0;
+    transform: translateY(-28px) rotate(-0.8deg);
+  }
+  60% {
+    opacity: 1;
+  }
+}
+@keyframes pin-press {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.6);
+  }
+}
+.sheet {
+  animation: pin-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: 50% 0;
+}
+.pin {
+  animation: pin-press 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.65s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
