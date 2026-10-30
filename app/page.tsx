@@ -149,7 +149,7 @@ function Handout() {
   return (
     <a
       href={profile.resume}
-      download
+      download="Philbert CV.pdf"
       className="group relative mt-5 block rounded-[3px] border border-line-strong bg-paper-2 px-4 pb-4 pt-6 transition-colors hover:border-ink"
     >
       <span aria-hidden="true" className="absolute inset-x-4 -top-3 h-6">

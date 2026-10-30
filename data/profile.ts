@@ -2,7 +2,7 @@ export const profile = {
   name: "Philbert",
   email: "philtan3805@gmail.com",
   location: "Jakarta, Indonesia",
-  resume: "/Phil_resume.pdf",
+  resume: "/Philbert%20CV.pdf",
   links: {
     github: "https://github.com/Philbert72",
     linkedin: "https://www.linkedin.com/in/philbert-tan",

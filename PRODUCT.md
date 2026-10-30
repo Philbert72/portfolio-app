@@ -21,7 +21,7 @@ Undergraduate with published IEEE research (graph neural networks for real-time 
 ## Capabilities and Constraints
 
 - Next.js 16 App Router, React 19, Tailwind v4, framer-motion, lucide-react; deployed on Vercel.
-- Single page: hero, about, work (9 projects in `data/projects.ts`), experience, contact. CV at `public/Phil_resume.pdf`.
+- Single page: hero, about, work (9 projects in `data/projects.ts`), experience, contact. CV at `public/Philbert CV.pdf` (exported from the Google Doc; `/Phil_resume.pdf` redirects to it).
 - Existing interactions to keep working: project filtering, project/technology graph, command menu (Cmd/Ctrl+K), light/dark theme.
 
 ## Brand Commitments
