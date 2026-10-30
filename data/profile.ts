@@ -65,5 +65,5 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Languages", items: ["Python", "PHP", "SQL", "C", "Java"] },
   { group: "ML & modeling", items: ["PyTorch", "Scikit-learn", "GNNs", "NMF", "Computer vision", "NLP"] },
   { group: "Data", items: ["Pandas", "NumPy", "Matplotlib", "OpenCV"] },
-  { group: "Tools", items: ["Git", "Docker", "Linux", "PostgreSQL", "MySQL", "Alibaba Cloud", "Azure"] },
+  { group: "Tools", items: ["Git", "Docker", "Linux", "MySQL", "Alibaba Cloud", "Azure"] },
 ];
