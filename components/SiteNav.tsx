@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useTheme } from "@/lib/theme";
@@ -17,6 +17,7 @@ export default function SiteNav() {
   const [current, setCurrent] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const lockedTo = useRef<string | null>(null);
   const { theme, toggle } = useTheme();
 
   useEffect(() => {
@@ -24,24 +25,56 @@ export default function SiteNav() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    // A section counts as current while it crosses the band just under the header.
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) if (e.isIntersecting) setCurrent(e.target.id);
-      },
-      { rootMargin: "-30% 0px -60% 0px" },
-    );
-    const hero = document.getElementById("top");
-    if (hero) observer.observe(hero);
-    sections.forEach((s) => {
-      const el = document.getElementById(s.id);
-      if (el) observer.observe(el);
-    });
+    // About and Work share the poster's first row, so position alone can't tell them apart:
+    // the row reads as About, and Work takes over once the project figures reach the header.
+    const markers: [string, string][] = [
+      ["top", "#top"],
+      ["about", "#about"],
+      ["work", "#work-figures"],
+      ["record", "#record"],
+      ["contact", "#contact"],
+    ];
+    let frame = 0;
+    const spy = () => {
+      frame = 0;
+      if (lockedTo.current) return;
+      const line = 120;
+      let id: string | null = null;
+      for (const [key, selector] of markers) {
+        const el = document.querySelector(selector);
+        if (el && el.getBoundingClientRect().top <= line) id = key;
+      }
+      // The last section may never reach the line on a tall screen.
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) id = "contact";
+      setCurrent(id);
+    };
+    const onSpyScroll = () => {
+      if (!frame) frame = requestAnimationFrame(spy);
+    };
+    // A user-initiated scroll releases the lock a nav click put on the highlight.
+    const release = () => {
+      lockedTo.current = null;
+    };
+    spy();
+    window.addEventListener("scroll", onSpyScroll, { passive: true });
+    window.addEventListener("wheel", release, { passive: true });
+    window.addEventListener("touchmove", release, { passive: true });
+    window.addEventListener("keydown", release);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      observer.disconnect();
+      window.removeEventListener("scroll", onSpyScroll);
+      window.removeEventListener("wheel", release);
+      window.removeEventListener("touchmove", release);
+      window.removeEventListener("keydown", release);
+      cancelAnimationFrame(frame);
     };
   }, []);
+
+  // The clicked link stays highlighted even when its target shares a row with another section.
+  const jumpTo = (id: string) => {
+    lockedTo.current = id;
+    setCurrent(id);
+  };
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -76,6 +109,7 @@ export default function SiteNav() {
               <li key={s.id} className="relative">
                 <a
                   href={`#${s.id}`}
+                  onClick={() => jumpTo(s.id)}
                   aria-current={active ? "location" : undefined}
                   className={`relative z-10 block rounded-[3px] px-4 py-2 text-[14.5px] font-medium transition-colors duration-200 ${
                     active ? "text-ink" : "text-board-dim hover:text-board-ink"
@@ -151,7 +185,10 @@ export default function SiteNav() {
                 <li key={s.id}>
                   <a
                     href={`#${s.id}`}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      jumpTo(s.id);
+                      setMenuOpen(false);
+                    }}
                     className={`flex h-14 items-center justify-between border-b border-white/10 font-display text-2xl font-bold tracking-[-0.02em] [font-stretch:110%] ${
                       current === s.id ? "text-hi" : "text-board-ink"
                     }`}

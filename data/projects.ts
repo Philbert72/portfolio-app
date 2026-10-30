@@ -19,7 +19,7 @@ export const projects: Project[] = [
     tags: ["PyTorch Geometric", "GNN", "Federated Learning", "Cloud Security"],
     url: "https://github.com/Philbert72/federated-hgnn-anomaly-detection",
     category: "research",
-    image: "/projects/federated-hgnn-graph.png"
+    image: "/projects/federated-hgnn-diagram.png"
   },
   { 
     num: "01", 

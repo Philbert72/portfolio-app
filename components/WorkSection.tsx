@@ -113,7 +113,7 @@ export default function WorkSection({ intro }: { intro: React.ReactNode }) {
           </div>
 
           <figure className="mt-4">
-            <div className="laser relative h-[360px] overflow-hidden rounded-[3px] border border-line bg-paper-2 sm:h-[460px] lg:h-[560px]">
+            <div className="laser relative h-[480px] overflow-hidden rounded-[3px] border border-line bg-paper-2 sm:h-[460px] lg:h-[560px]">
               <WorkGraph
                 projects={projects}
                 visible={visible}
@@ -141,7 +141,7 @@ export default function WorkSection({ intro }: { intro: React.ReactNode }) {
         </section>
       </div>
 
-      <ul className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-4" aria-label="Projects">
+      <ul id="work-figures" className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-4" aria-label="Projects">
         <AnimatePresence mode="popLayout" initial={false}>
           {filtered.map((p) => (
             <ProjectFigure

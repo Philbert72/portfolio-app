@@ -96,7 +96,7 @@ export function tick(
         d2 = 1;
       }
       // Projects push each other harder so their labels don't collide.
-      const f = (repulse / d2) * alpha * (a.kind === "project" && b.kind === "project" ? 2.5 : 1);
+      const f = (repulse / d2) * alpha * (a.kind === "project" && b.kind === "project" ? 4 : 1);
       const d = Math.sqrt(d2);
       const fx = (dx / d) * f;
       const fy = (dy / d) * f;
@@ -136,6 +136,6 @@ export function tick(
     n.vx *= 0.82;
     n.vy *= 0.82;
     n.x = Math.max(pad, Math.min(width - pad, n.x + n.vx));
-    n.y = Math.max(pad, Math.min(height - pad - 24, n.y + n.vy)); // keep clear of the legend
+    n.y = Math.max(pad + 24, Math.min(height - pad, n.y + n.vy)); // keep clear of the legend
   }
 }
