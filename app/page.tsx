@@ -62,14 +62,14 @@ function Banner() {
       <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <h1 className="font-display text-[clamp(3.25rem,10vw,6rem)] font-extrabold leading-[0.88] tracking-[-0.035em] [font-stretch:118%]">
-            Philbert Tan
+            Philbert
           </h1>
           <p className="mt-4 max-w-[40ch] font-display text-[clamp(1.15rem,2.2vw,1.5rem)] font-medium leading-snug tracking-[-0.01em] [font-stretch:105%]">
             Machine learning research, and the systems built around it
           </p>
           <p className="mt-4 flex flex-col gap-1 text-[15px] leading-relaxed text-cobalt-dim md:flex-row md:flex-wrap md:gap-x-6">
             <span className="font-semibold text-cobalt-ink">
-              Philbert Tan<sup className="ml-0.5">1,2</sup>
+              Philbert<sup className="ml-0.5">1,2</sup>
             </span>
             <span>
               <sup>1</sup> BINUS University, Jakarta
@@ -101,7 +101,7 @@ function Introduction() {
       <div className="mt-5 grid grid-cols-[minmax(0,148px)_1fr] gap-4">
         <figure>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[3px] bg-paper-2">
-            <Image src="/profile.png" alt="Portrait of Philbert Tan" fill preload sizes="148px" className="object-cover" />
+            <Image src="/profile.png" alt="Portrait of Philbert" fill preload sizes="148px" className="object-cover" />
           </div>
           <figcaption className="mt-1.5 font-mono text-[11px] text-ink-3">The author.</figcaption>
         </figure>
@@ -296,7 +296,7 @@ function Contact() {
 function SheetFooter() {
   return (
     <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-line px-4 py-5 text-[13px] text-ink-3 sm:px-8 md:px-10">
-      <span>© 2026 Philbert Tan</span>
+      <span>© 2026 Philbert</span>
       <span className="hidden sm:inline">
         Press <kbd className="rounded-[2px] border border-line-strong px-1.5 py-0.5 font-mono text-[11px]">⌘K</kbd> or{" "}
         <kbd className="rounded-[2px] border border-line-strong px-1.5 py-0.5 font-mono text-[11px]">/</kbd> to jump anywhere

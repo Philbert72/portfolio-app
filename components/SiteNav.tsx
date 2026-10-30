@@ -66,7 +66,7 @@ export default function SiteNav() {
       </a>
       <nav aria-label="Primary" className="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-4 px-4 sm:px-8">
         <a href="#top" className="font-display text-[18px] font-extrabold tracking-[-0.02em] text-board-ink [font-stretch:115%]">
-          Philbert Tan
+          Philbert
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">

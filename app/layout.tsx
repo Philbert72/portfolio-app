@@ -20,9 +20,9 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Philbert Tan · CS & AI",
+  title: "Philbert · CS & AI",
   description:
-    "Portfolio of Philbert Tan: Computer Science student at BINUS University, exchange student at NSYSU Taiwan, and machine learning researcher.",
+    "Portfolio of Philbert: Computer Science student at BINUS University, exchange student at NSYSU Taiwan, and machine learning researcher.",
 };
 
 export const viewport: Viewport = {

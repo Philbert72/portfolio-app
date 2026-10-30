@@ -1,5 +1,5 @@
 export const profile = {
-  name: "Philbert Tan",
+  name: "Philbert",
   email: "philtan3805@gmail.com",
   location: "Jakarta, Indonesia",
   resume: "/Phil_resume.pdf",
@@ -23,7 +23,6 @@ export const timeline: TimelineEntry[] = [
     when: "2026",
     title: "Exchange student",
     org: "National Sun Yat-sen University, Taiwan",
-    detail: "Reinforcement learning, Python and information security.",
     kind: "education",
   },
   {
@@ -31,7 +30,7 @@ export const timeline: TimelineEntry[] = [
     title: "Chief Operating Officer",
     org: "MiniMemo, Jakarta",
     detail:
-      "Re-engineered the photo-to-keychain workflow, cutting customer wait times by 40% and raising hourly throughput by 25%.",
+      "Re-engineered the photo-to-keychain workflow to reduce customer wait times, ran quality checks for printing and assembly, and applied SMART objectives and financial metrics (NPV/IRR) to operations.",
     kind: "work",
   },
   {
